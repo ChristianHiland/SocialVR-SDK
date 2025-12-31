@@ -1,0 +1,56 @@
+ManifestFileVersion: 0
+CRC: 2393778191
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8d7a8709dc3daf4340618f31d587d7ed
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 4fb177a2e681db6e232446c86cd72304
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 8d7a8709dc3daf4340618f31d587d7ed
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: eacc3fa199c49bc49afbe27aacede2f6, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 154
+  Script: {instanceID: 0}
+- Class: 156
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 196
+  Script: {instanceID: 0}
+- Class: 218
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Scenes/DefaultHome.unity
+Dependencies: []

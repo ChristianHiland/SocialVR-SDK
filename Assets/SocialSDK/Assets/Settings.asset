@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf805acd15754d4db3650d351683cee7, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  serverURL: http://127.0.0.1:8002/
+  serverURL: http://170-187-201-130.ip.linodeusercontent.com:8000/
   userLoginFile: User/player_login.info
   worldPath: Worlds/
+  worldThumbnailPath: Worlds/thumbnails/
   userData:
     name: 
     username: 

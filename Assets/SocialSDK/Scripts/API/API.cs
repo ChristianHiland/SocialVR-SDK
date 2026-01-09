@@ -17,6 +17,7 @@ namespace SocialSDK {
         
         // Ref to other components.
         [SerializeField] private WorldHandler worldHandler;
+        [SerializeField] private SocialDll _socialDll;
         public Settings settings;
 
         [Header("Events")] 
@@ -33,27 +34,21 @@ namespace SocialSDK {
         void Start() {
             // Finding Components in Game.
             worldHandler = GameObject.Find("SocialSDK").GetComponent<WorldHandler>();
+            string result = _socialDll.HandleRustString(SocialDll.checkForPresentLogin(Path.Combine(Application.persistentDataPath, "User/player_login.info")));
+            if (result == "true")
+            {
+                string loginContent = LoadFile(Path.Combine(Application.persistentDataPath, "User/player_login.info"));
+                UserData responseData = JsonUtility.FromJson<UserData>(loginContent);
+                loginProcessed.Invoke(responseData);
+            }
         }
         
         // Login Function
-        public void Login(string username, string password) { StartCoroutine(LoginCo(username, password)); }
-        private IEnumerator LoginCo(string username, string password) {
-            // Making JSON Payload.
-            UserLogin loginPayload = new  UserLogin { username = username,  password = password };
-            byte[] rawBody = Encoding.UTF8.GetBytes(JsonUtility.ToJson(loginPayload));
-            // Making Var to Return to Events.
-            UserData responseData = new UserData();
-            using (var uwr = new UnityWebRequest(settings.serverURL + "user/login", UnityWebRequest.kHttpVerbPOST)) {
-                uwr.uploadHandler = new UploadHandlerRaw(rawBody);
-                uwr.SetRequestHeader("Content-Type", "application/json");
-                uwr.downloadHandler = new DownloadHandlerBuffer();
-                // Sending Request to API Server.
-                yield return uwr.SendWebRequest();
-                // Error Check.
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error); }
-                string responseBody = uwr.downloadHandler.text;
-                responseData = JsonUtility.FromJson<UserData>(responseBody);
-            }
+        public void Login(string username, string password) {
+            string data = _socialDll.HandleRustString(SocialDll.login($"{settings.serverURL}user/login", username, password));
+            Debug.Log(data);
+            UserData responseData = JsonUtility.FromJson<UserData>(data);
+            Save<UserData>(responseData, Path.Combine(Application.persistentDataPath, "User/player_login.info"));
             loginProcessed.Invoke(responseData);
         }
         
@@ -66,13 +61,31 @@ namespace SocialSDK {
                 uwr.uploadHandler = new UploadHandlerRaw(rawBody);
                 uwr.SetRequestHeader("Content-Type", "application/json");
                 yield return uwr.SendWebRequest();
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error); }
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "Signup"); }
             }
             signupProcessed.Invoke();
         }
         
         // Download World Functions.
-        public void DownloadWorld(string worldName, string publisher) { StartCoroutine(DownloadWorldCo(worldName, publisher)); }
+        public void DownloadWorld(string worldName, string publisher) {
+            if (File.Exists(Path.Combine(Application.persistentDataPath, $"{settings.worldPath}{worldName}_{publisher}/world.socialWorld"))) {
+                // Check file size and compare with server if it's not the same then download the changed world.
+                string serverSize = _socialDll.HandleRustString(SocialDll.getServerWorldSize($"{settings.serverURL}game/assets/getWorldSize", publisher, worldName));
+                FileInfo info = new FileInfo(Path.Combine(Application.persistentDataPath, $"{settings.worldPath}{worldName}_{publisher}/world.socialWorld"));
+                long serverSideSize = long.Parse(serverSize);
+                long sizeInBytes = info.Length;
+                Debug.Log($"Server: {serverSideSize}, local: {sizeInBytes}");
+                if (serverSideSize != sizeInBytes) {
+                    StartCoroutine(DownloadWorldCo(worldName, publisher));
+                }else {
+                    downloadProcessed.Invoke(worldName, publisher, Path.Combine(Application.persistentDataPath, $"{settings.worldPath}"));
+                }
+            } else {
+                StartCoroutine(DownloadWorldCo(worldName, publisher));
+            }
+            
+        }
+        
         private IEnumerator DownloadWorldCo(string worldName, string publisher) {
             // Setting up Loading UI.
             if (worldHandler.worldName != null) {
@@ -108,7 +121,7 @@ namespace SocialSDK {
                 }
                 // Checking for Errors.
                 if (uwr.result == UnityWebRequest.Result.ConnectionError ||
-                    uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error); }
+                    uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "DownloadWorld"); }
 
                 if (uwr.result == UnityWebRequest.Result.Success) {
                     worldHandler.loadingProgress.value = 1f;
@@ -136,7 +149,7 @@ namespace SocialSDK {
                 // Sending Request
                 yield return uwr.SendWebRequest();
                 // Error Checking.
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error); }
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "GetWorldList"); }
                 worldData = JsonUtility.FromJson<GetWorldData>(uwr.downloadHandler.text);
             }
             worldListProcessed.Invoke(worldData);
@@ -173,7 +186,7 @@ namespace SocialSDK {
                     yield return null;
                 }
                 // Error Checking.
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error); }
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "GetWorldThumbnail"); }
             }
             worldThumbnailProcessed.Invoke(Path.Combine(Application.persistentDataPath, $"{settings.worldThumbnailPath}{worldName}_{publisher}.png"));
         }
@@ -181,11 +194,13 @@ namespace SocialSDK {
         
         // Helper Functions
 
-        public void ErrorHappened(string reason) {
-            Debug.LogError(reason);
+        public void ErrorHappened(string reason, string function) {
+            Debug.LogError($"{reason} caused by {function}");
             erroredScene = true;
             SceneManager.LoadScene(1);
             worldHandler.sceneLoadingUI.SetActive(false);
+            TMP_Text reasonText = GameObject.Find("Reason").GetComponent<TMP_Text>();
+            reasonText.text = reason;
             errorReason = reason;
         }
         
@@ -210,8 +225,11 @@ namespace SocialSDK {
         public string LoadFile(string filePath) {
             if (File.Exists(filePath)) {
                 string fileContent = File.ReadAllText(filePath);
+            }else {
+                Debug.Log($"[LOADING ERROR]: File Not Found: {filePath}");
+                return "";
             }
-            Debug.Log($"[LOADING ERROR]: File Not Found: {filePath}");
+
             return "";
         }
     }

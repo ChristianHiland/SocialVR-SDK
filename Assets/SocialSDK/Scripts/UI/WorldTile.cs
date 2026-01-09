@@ -16,9 +16,10 @@ namespace SocialSDK {
             _worldHandler = GameObject.Find("SocialSDK").GetComponent<WorldHandler>();
         }
         
-        public void SetWorld(string WorldName, string WorldPublisher) {
+        public void SetWorld(string WorldName, string WorldPublisher, Texture2D WorldImage) {
             this.worldName.text = WorldName;
             this.worldPublisher.text = WorldPublisher;
+            this.worldImage.texture = WorldImage;
         }
 
         public void OnClicked() {

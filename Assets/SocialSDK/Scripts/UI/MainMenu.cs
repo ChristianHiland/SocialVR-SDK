@@ -25,7 +25,6 @@ public class MainMenu : MonoBehaviour {
 
     public void LoginDataDone(UserData userData) {
         UserLoginData = userData;
-        _api.Save(UserLoginData, Path.Combine(Application.persistentDataPath, "User/player_login.info"));
         _worldHandler.LoadWorld("SocialSDK", "DefaultHome");
     }
     

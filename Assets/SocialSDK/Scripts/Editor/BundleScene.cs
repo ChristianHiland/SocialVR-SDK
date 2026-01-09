@@ -88,9 +88,6 @@ namespace SocialSDK {
             // E. CLEANUP: Clear the AssetBundle name after building to keep the project clean
             AssetImporter.GetAtPath(scenePath).assetBundleName = string.Empty;
             AssetDatabase.RemoveUnusedAssetBundleNames();
-
-            // E.1 Make PNG from World Thumbnail camera.
-            MakeWorldThumbnail();
             
             // F. UPLOAD: Start the upload process
             string fullBundlePath = Path.Combine(bundleOutputPath, bundleName);
@@ -98,14 +95,13 @@ namespace SocialSDK {
             if (File.Exists(fullBundlePath)) {
                 Debug.Log($"Bundle '{bundleName}' created successfully. Starting upload...");
                 // Start the upload Coroutine (using EditorCoroutines to run async code in the Editor)
-                EditorCoroutineUtility.StartCoroutineOwnerless(UploadBundleFile(fullBundlePath, bundleName, serverURL,
-                    publisher));
+                EditorCoroutineUtility.StartCoroutineOwnerless(UploadBundleFile(fullBundlePath, bundleName, serverURL, publisher));
             }else {
                 Debug.LogError("Failed to find the built asset bundle file.");
             }
         }
 
-        private static IEnumerator UploadBundleFile(string filePath, string worldName, string uploadUrl, string publisher) {
+        private IEnumerator UploadBundleFile(string filePath, string worldName, string uploadUrl, string publisher) {
 
             WorldInfoGet payload = new WorldInfoGet { name = worldName, publisher = publisher };
 
@@ -133,6 +129,7 @@ namespace SocialSDK {
                 // E. Error checking unchanged
                 if (uwr.result == UnityWebRequest.Result.Success) {
                     Debug.Log($"✅ Successfully uploaded '{worldName}'. Server Response: {uwr.downloadHandler.text}");
+                    MakeWorldThumbnail();
                 }else {
                     Debug.LogError($"Upload failed! Error: {uwr.error}. Status: {uwr.responseCode}");
                 }

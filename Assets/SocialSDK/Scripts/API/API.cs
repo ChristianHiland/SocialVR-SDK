@@ -46,7 +46,6 @@ namespace SocialSDK {
         // Login Function
         public void Login(string username, string password) {
             string data = _socialDll.HandleRustString(SocialDll.login($"{settings.serverURL}user/login", username, password));
-            Debug.Log(data);
             UserData responseData = JsonUtility.FromJson<UserData>(data);
             Save<UserData>(responseData, Path.Combine(Application.persistentDataPath, "User/player_login.info"));
             loginProcessed.Invoke(responseData);

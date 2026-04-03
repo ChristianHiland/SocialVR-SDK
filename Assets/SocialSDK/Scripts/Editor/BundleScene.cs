@@ -11,7 +11,7 @@ namespace SocialSDK {
     public class SceneUploaderEditor : EditorWindow {
         private SceneAsset sceneToBundle;
         private string worldName = "world";
-        private string serverUploadUrl = "http://127.0.0.1:8002/game/assets/uploadWorld";
+        private string serverUploadUrl = "http://10.51.109.25:8000/game/assets/uploadWorld";
         private string publisherMetadata = "SocialSDK";
         private Camera worldThumbnailCamera;
         private int width = 1920;
@@ -53,7 +53,7 @@ namespace SocialSDK {
             }
             
             if (GUILayout.Button("Upload World Thumbnail")) {
-                MakeWorldThumbnail();
+                if (worldThumbnailCamera != null) MakeWorldThumbnail();
             }
 
             GUI.enabled = true;

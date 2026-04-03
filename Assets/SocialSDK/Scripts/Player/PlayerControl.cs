@@ -14,11 +14,6 @@ namespace SocialSDK {
         
         public FirstPersonLook firstPersonLook;
 
-
-        void Start() {
-
-        }
-
         void Update() {
             if (mainMenu != null) {
                 if (mainMenu.activeSelf || menu.activeSelf) {

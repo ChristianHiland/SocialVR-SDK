@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace SocialSDK {
     public class WorldTile : MonoBehaviour {
@@ -23,7 +24,11 @@ namespace SocialSDK {
         }
 
         public void OnClicked() {
-            _worldHandler.LoadWorld(worldPublisher.text, worldName.text);
+            _worldHandler.ShowWorldInfo(worldPublisher.text, worldName.text, this);
+        }
+
+        public UnityAction CreatePrivateInstance() {
+            return () => _worldHandler.LoadWorld(worldPublisher.text, worldName.text);
         }
     }
 }

@@ -24,11 +24,18 @@
     {
       "Annotation": "BuildPlayerDataGenerator Library/BuildPlayerData/Editor/TypeDb-All.json",
       "DisplayName": "BuildPlayerDataGenerator TypeDb-All",
-      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.visualscripting@1.9.4\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\ScriptAssemblies\" -s=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\" -s=\"C:\\Users\\Lee Lunbin\\Documents\\Projects\\Unity\\SocialVR-SDK\\Library\\PackageCache\\com.unity.visualscripting@1.9.4\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
+      "Action": "\"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data\\Tools\\netcorerun\\netcorerun.exe\" \"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Assets\\Photon\\PhotonLibs\\netstandard2.0\\Photon3Unity3D.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Assets\\Photon\\PhotonLibs\\WebSocket\\websocket-sharp.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Assembly-CSharp.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\PhotonChat.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\PhotonRealtime.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\PhotonUnityNetworking.Demos.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\PhotonUnityNetworking.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\PhotonUnityNetworking.Utilities.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.TextMeshPro.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.Timeline.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.Core.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.Flow.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\Unity.VisualScripting.State.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\UnityEngine.TestRunner.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\\UnityEngine.UI.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\\nunit.framework.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\\ReportGeneratorMerged.dll\" -a=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.visualscripting@1.9.4\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\\Unity.VisualScripting.Antlr3.Runtime.dll\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Assets\\Photon\\PhotonLibs\\netstandard2.0\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Assets\\Photon\\PhotonLibs\\WebSocket\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\Managed\\UnityEngine\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netfx\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\compat\\2.1.0\\shims\\netstandard\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\Extensions\\2.0.0\" -s=\"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.33f1\\Editor\\Data\\NetStandard\\ref\\2.1.0\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\ScriptAssemblies\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.ext.nunit@1.0.6\\net35\\unity-custom\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.testtools.codecoverage@1.2.5\\lib\\ReportGenerator\" -s=\"C:\\Users\\Wall-E\\Projects\\2026\\SocialVR-SDK\\Library\\PackageCache\\com.unity.visualscripting@1.9.4\\Runtime\\VisualScripting.Flow\\Dependencies\\NCalc\" -o=\"Library/BuildPlayerData/Editor\" -rn=\"\" -tn=\"TypeDb-All.json\"",
       "Inputs": [
         "C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/netcorerun/netcorerun.exe",
         "C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/Tools/BuildPlayerDataGenerator/BuildPlayerDataGenerator.exe",
+        "Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll",
+        "Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll",
         "Library/ScriptAssemblies/Assembly-CSharp.dll",
+        "Library/ScriptAssemblies/PhotonChat.dll",
+        "Library/ScriptAssemblies/PhotonRealtime.dll",
+        "Library/ScriptAssemblies/PhotonUnityNetworking.Demos.dll",
+        "Library/ScriptAssemblies/PhotonUnityNetworking.dll",
+        "Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.dll",
         "Library/ScriptAssemblies/Unity.TextMeshPro.dll",
         "Library/ScriptAssemblies/Unity.Timeline.dll",
         "Library/ScriptAssemblies/Unity.VisualScripting.Core.dll",
@@ -175,6 +182,12 @@
       "File": "Assets/mcs.rsp"
     },
     {
+      "File": "Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
+    },
+    {
+      "File": "Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
+    },
+    {
       "File": "Library/Bee/1900b0aESkipCompile-inputdata.json"
     },
     {
@@ -188,6 +201,21 @@
     },
     {
       "File": "Library/ScriptAssemblies/Assembly-CSharp.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PhotonChat.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PhotonRealtime.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PhotonUnityNetworking.Demos.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PhotonUnityNetworking.dll"
+    },
+    {
+      "File": "Library/ScriptAssemblies/PhotonUnityNetworking.Utilities.dll"
     },
     {
       "File": "Library/ScriptAssemblies/Unity.TextMeshPro.dll"
@@ -243,6 +271,6 @@
   "SharedResources": [],
   "Scanners": [],
   "Identifier": "Library/Bee/1900b0aESkipCompile.dag.json",
-  "PayloadsFile": "C:/Users/Lee Lunbin/Documents/Projects/Unity/SocialVR-SDK/Library/Bee/1900b0aESkipCompile.dag.payloads",
+  "PayloadsFile": "C:/Users/Wall-E/Projects/2026/SocialVR-SDK/Library/Bee/1900b0aESkipCompile.dag.payloads",
   "RelativePathToRoot": "../.."
 }

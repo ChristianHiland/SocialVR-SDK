@@ -319,6 +319,7 @@
 "Assets/SocialSDK/Scripts/API/ErrorWorld.cs"
 "Assets/SocialSDK/Scripts/API/WorldHandler.cs"
 "Assets/SocialSDK/Scripts/Asset Files/Settings.cs"
+"Assets/SocialSDK/Scripts/Helpers/Helpers.cs"
 "Assets/SocialSDK/Scripts/Helpers/Interaction/Interactable.cs"
 "Assets/SocialSDK/Scripts/Helpers/Interaction/PlayerInteract.cs"
 "Assets/SocialSDK/Scripts/Helpers/KeepAlive.cs"

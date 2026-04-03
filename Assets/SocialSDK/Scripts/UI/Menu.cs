@@ -23,6 +23,7 @@ public class Menu : MonoBehaviour {
     }
 
     public void PopulateWorlds2(GetWorldData data) {
+        Helpers.DeleteAllChildren(worldsGroup);
         foreach (WorldInfoGet worldInfoGet in data.Worlds) {
             // Download Thumbnail.
             //string path = _api.GetWorldThumbnail(worldInfoGet.name, worldInfoGet.publisher);

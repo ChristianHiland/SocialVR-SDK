@@ -5,6 +5,7 @@ using UnityEngine;
 using SocialSDK;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SocialSDK {
@@ -14,6 +15,7 @@ namespace SocialSDK {
         [Header("Menu Objects")] 
         public GameObject mainMenu;
         public GameObject menu;
+        public WorldInfoScreen worldInfoScreen;
         public GameObject sceneLoadingUI;
         public GameObject ProgressGroupUI;
         public GameObject NowLoadingSceneUI;
@@ -23,6 +25,8 @@ namespace SocialSDK {
         public RawImage worldThumbnail;
         public Slider loadingProgress;
         public AudioSource loadingMusic;
+
+        public UnityEvent doneLoadingWorld;
         
         private API _api;
         private AssetBundle _assetBundle;
@@ -30,6 +34,15 @@ namespace SocialSDK {
 
         private void Start() {
             _api = gameObject.GetComponent<API>();
+        }
+
+        public void ShowWorldInfo(string publisher, string world_name, WorldTile worldTile) {
+            worldInfoScreen.gameObject.SetActive(true);
+
+            //string thumbnailPath = _api.GetWorldThumbnail(world_name, publisher);
+            Texture2D world_thumbnail = new Texture2D(2,2);
+            worldInfoScreen.worldTile = worldTile;
+            worldInfoScreen.PopulateWorldInfo(world_name, publisher, world_thumbnail);
         }
 
         public void LoadWorld(string publisher, string worldName) {
@@ -40,6 +53,7 @@ namespace SocialSDK {
             // Download World & Thumbnail.
             string imagePath = _api.GetWorldThumbnail(worldName, publisher);
             _api.DownloadWorld(publisher, worldName);
+            worldInfoScreen.createPrivateButton.onClick.RemoveAllListeners();
         }
 
         public void FinishLoading(string publisher, string worldName, string WorldPath) {
@@ -55,8 +69,10 @@ namespace SocialSDK {
         }
 
         private IEnumerator LoadSceneFromBundle(string bundlePath, string scene) {
+            worldInfoScreen.gameObject.SetActive(false);
             ProgressGroupUI.SetActive(false);
             NowLoadingSceneUI.SetActive(true);
+            menu.SetActive(false);
             Debug.Log("Loading Scene...");
             
             // Getting Asset Bundle
@@ -64,8 +80,7 @@ namespace SocialSDK {
             yield return bundleRequest;
             _assetBundle = bundleRequest.assetBundle;
             
-            foreach (string name in _assetBundle.GetAllAssetNames())
-            {
+            foreach (string name in _assetBundle.GetAllAssetNames()) {
                 Debug.Log(name);
             }
             
@@ -94,10 +109,10 @@ namespace SocialSDK {
             loadingMusic.time = 0f;
             Transform spawnHere = GameObject.Find("Spawn Here").transform;
             Transform player = GameObject.Find("Player").transform;
-            if (spawnHere != null) {
-                player.position = spawnHere.position;
-            }
+            if (spawnHere != null) { player.position = spawnHere.position; }
 
+            // Invoke The done Process of Multiplayer.
+            doneLoadingWorld.Invoke();
         }
 
         public void LoadThumbnail(string path) {

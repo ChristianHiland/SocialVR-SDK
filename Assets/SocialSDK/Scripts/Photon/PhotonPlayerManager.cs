@@ -14,20 +14,14 @@ public class PhotonPlayerManager : MonoBehaviourPun {
 
 
     void Start() {
-        if (photonView.IsMine) {
-            // Allow the Local Player to Control their own character
-            playerCamera.SetActive(true);
-            movement.enabled = true;
-            personAudio.enabled = true;
-            socialSDK.SetActive(true);
-            playerControl.enabled = true;
-        } else {
-            playerCamera.SetActive(false);
-            movement.enabled = false;
-            personAudio.enabled = false;
-            socialSDK.SetActive(false);
-            playerControl.enabled = false;
-        }
+    }
+
+    public void isNotLocal() {
+        playerCamera.SetActive(false);
+        movement.enabled = false;
+        personAudio.enabled = false;
+        socialSDK.SetActive(false);
+        playerControl.enabled = false;
     }
 
     public void CheckAgain() {

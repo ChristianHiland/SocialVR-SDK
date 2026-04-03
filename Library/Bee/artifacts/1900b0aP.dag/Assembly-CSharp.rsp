@@ -107,8 +107,14 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:PHOTON_UNITY_NETWORKING
+-define:PUN_2_0_OR_NEWER
+-define:PUN_2_OR_NEWER
+-define:PUN_2_19_OR_NEWER
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll"
+-r:"Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.ComponentModel.Composition.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/System.Core.dll"
@@ -299,6 +305,11 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.WindModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.33f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll"
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/PhotonChat.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/PhotonRealtime.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/PhotonUnityNetworking.Demos.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/PhotonUnityNetworking.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/PhotonUnityNetworking.Utilities.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.TextMeshPro.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Timeline.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.VisualScripting.Core.ref.dll"
@@ -314,6 +325,19 @@
 "Assets/Imports/Mini First Person Controller/Scripts/Components/Zoom.cs"
 "Assets/Imports/Mini First Person Controller/Scripts/FirstPersonLook.cs"
 "Assets/Imports/Mini First Person Controller/Scripts/FirstPersonMovement.cs"
+"Assets/NametagSync.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChannelSelector.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChatNewGui.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChatSettings.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/FriendItem.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/NamePickNewGui.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/ChatIdCheckerUI.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/DestroyOnStart.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/EnableOnStart.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/IgnoreUiRaycastWhenInactive.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/TextButtonTransition.cs"
+"Assets/Photon/PhotonChat/Demos/Demo Chat/Code/Utilities/TextToggleIsOnTransition.cs"
+"Assets/Photon/PhotonRealtime/Demos/DemoLoadBalancing/ConnectAndJoinRandomLb.cs"
 "Assets/SocialSDK/Scripts/API/API.cs"
 "Assets/SocialSDK/Scripts/API/API_OLD.cs"
 "Assets/SocialSDK/Scripts/API/ErrorWorld.cs"
@@ -325,13 +349,21 @@
 "Assets/SocialSDK/Scripts/Helpers/KeepAlive.cs"
 "Assets/SocialSDK/Scripts/Helpers/SceneRefHandler.cs"
 "Assets/SocialSDK/Scripts/Helpers/World Loading/WorldActionLoader.cs"
+"Assets/SocialSDK/Scripts/Multiplayer.cs"
+"Assets/SocialSDK/Scripts/Photon/AvatarSetup.cs"
+"Assets/SocialSDK/Scripts/Photon/NetworkAuthenticator.cs"
+"Assets/SocialSDK/Scripts/Photon/PhotonPlayerManager.cs"
+"Assets/SocialSDK/Scripts/Photon/RoomManger.cs"
 "Assets/SocialSDK/Scripts/Player/PlayerControl.cs"
 "Assets/SocialSDK/Scripts/Player/SocialPlayer.cs"
 "Assets/SocialSDK/Scripts/SocialDll.cs"
 "Assets/SocialSDK/Scripts/Structs.cs"
+"Assets/SocialSDK/Scripts/UI/InstanceEntry.cs"
 "Assets/SocialSDK/Scripts/UI/MainMenu.cs"
 "Assets/SocialSDK/Scripts/UI/Menu.cs"
 "Assets/SocialSDK/Scripts/UI/World Downloader.cs"
+"Assets/SocialSDK/Scripts/UI/WorldInfoScreen.cs"
+"Assets/SocialSDK/Scripts/UI/WorldInstances.cs"
 "Assets/SocialSDK/Scripts/UI/WorldTile.cs"
 "Assets/SocialSDK/Scripts/UnityEventStructs.cs"
 "Assets/SocialSDK/Scripts/World/SocialVR World.cs"

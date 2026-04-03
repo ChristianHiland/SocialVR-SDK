@@ -16,11 +16,13 @@ namespace SocialSDK {
             if (!PhotonNetwork.IsConnected) {
                 Debug.Log("Connecting to NameServer...");
                 PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.AutomaticallySyncScene = false;
             }
         }
 
         public void CreateInstance(string worldName, string publisher) {
             if (isCreating || !PhotonNetwork.IsConnectedAndReady) return;
+            if (PhotonNetwork.InRoom) LeaveRoom();
             isCreating = true;
             int instanceID = 12321;
             string roomName = $"{publisher}_{worldName}_{instanceID}";
@@ -33,6 +35,8 @@ namespace SocialSDK {
             roomProps.Add("w_name", worldName);
             roomProps.Add("w_pub", publisher);
             roomProps.Add("owner", socialPlayer.displayName.text);
+            
+
 
             options.CustomRoomProperties = roomProps;
             options.CustomRoomPropertiesForLobby = new string[] { "w_name", "w_pub", "owner" };
@@ -40,6 +44,7 @@ namespace SocialSDK {
             // Storing metadata for player
             ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
             playerProps.Add("DisplayName", socialPlayer.displayName.text);
+            playerProps.Add("Rank", socialPlayer.rankText.text);
 
             PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
 
@@ -73,6 +78,10 @@ namespace SocialSDK {
 
         }
 
+        public void LeaveRoom() {
+            PhotonNetwork.LeaveRoom();
+        }
+
         IEnumerator DelayedLoad() {
             yield return new WaitForSeconds(1.0f);
 
@@ -91,11 +100,17 @@ namespace SocialSDK {
 
         public void PlayerLoadedWorld() {
             // Setup The Avatar (Capule currently)
-            GameObject spawnPoint = GameObject.Find("Spawn Here");
-            Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
-            if (PhotonNetwork.IsConnectedAndReady && joinedRoom) {
-                GameObject player = PhotonNetwork.Instantiate("Player", pos, Quaternion.identity);
+            StartCoroutine(SpawnWithDelay());
+        }
 
+        IEnumerator SpawnWithDelay() {
+            // Wait for the network to settle after the scene load
+            yield return new WaitForSeconds(1.0f);
+
+            if (PhotonNetwork.InRoom) {
+                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
             }
         }
     }

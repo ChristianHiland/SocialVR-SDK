@@ -375,6 +375,7 @@
 "Assets/Imports/Mini First Person Controller/Scripts/Components/Zoom.cs"
 "Assets/Imports/Mini First Person Controller/Scripts/FirstPersonLook.cs"
 "Assets/Imports/Mini First Person Controller/Scripts/FirstPersonMovement.cs"
+"Assets/NametagSync.cs"
 "Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChannelSelector.cs"
 "Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChatNewGui.cs"
 "Assets/Photon/PhotonChat/Demos/Demo Chat/Code/ChatSettings.cs"

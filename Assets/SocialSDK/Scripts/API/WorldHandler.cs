@@ -27,6 +27,7 @@ namespace SocialSDK {
         public AudioSource loadingMusic;
 
         public UnityEvent doneLoadingWorld;
+        public Multiplayer multiplayerManager;
         
         private API _api;
         private AssetBundle _assetBundle;
@@ -103,15 +104,27 @@ namespace SocialSDK {
         }
         
         private void DoneLoadingWorld() {
+            StartCoroutine(DoneLoadingWorldCoroutine());
+        }
+
+        private IEnumerator DoneLoadingWorldCoroutine() {
             ProgressGroupUI.SetActive(true);
             NowLoadingSceneUI.SetActive(false);
             loadingMusic.Stop();
             loadingMusic.time = 0f;
-            Transform spawnHere = GameObject.Find("Spawn Here").transform;
-            Transform player = GameObject.Find("Player").transform;
-            if (spawnHere != null) { player.position = spawnHere.position; }
 
-            // Invoke The done Process of Multiplayer.
+            // Wait for the end of the frame to ensure the new scene is fully integrated
+            yield return new WaitForEndOfFrame();
+
+            GameObject spawnPointObj = GameObject.Find("Spawn Here");
+            GameObject playerObj = GameObject.Find("Player");
+
+            if (spawnPointObj != null && playerObj != null) {
+                playerObj.transform.position = spawnPointObj.transform.position;
+                playerObj.transform.rotation = spawnPointObj.transform.rotation;
+            }
+
+            // Now it is safe to spawn the networked visual
             doneLoadingWorld.Invoke();
         }
 

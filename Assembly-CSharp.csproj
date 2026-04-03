@@ -89,8 +89,8 @@
     <Compile Include="Assets\SocialSDK\Scripts\UI\World Downloader.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\WorldInstances.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\FriendItem.cs" />
-    <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Crouch.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Photon\RoomManger.cs" />
+    <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Crouch.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\InstanceEntry.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Asset Files\Settings.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\TextButtonTransition.cs" />
@@ -100,6 +100,7 @@
     <Compile Include="Assets\SocialSDK\Scripts\API\ErrorWorld.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Structs.cs" />
+    <Compile Include="Assets\NametagSync.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Jump.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\API.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\ChatIdCheckerUI.cs" />

@@ -9,7 +9,9 @@ ScriptsOnlyBuild:
     - GroundCheck
     - InstanceEntry
     - Jump
+    - KeepAlive
     - Menu
+    - NametagSync
     - PhotonPlayerManager
     - PlayerInteract
     - SocialDll
@@ -248,9 +250,6 @@ ScriptsOnlyBuild:
     fullTypeName: SocialSDK.WorldTile
     methodName: OnClicked
   - assembly: Assembly-CSharp
-    fullTypeName: SocialSDK.WorldTile
-    methodName: OnClicked
-  - assembly: Assembly-CSharp
     fullTypeName: SocialSDK.SocialPlayer
     methodName: SaveUserRuntime
   - assembly: Assembly-CSharp
@@ -265,6 +264,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SocialSDK.Multiplayer
     methodName: PlayerLoadedWorld
+  - assembly: Assembly-CSharp
+    fullTypeName: SocialSDK.WorldTile
+    methodName: OnClicked
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
@@ -319,15 +321,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3198}
     - Class: 114
-      Script: {instanceID: 7744}
+      Script: {instanceID: 5816}
     - Class: 114
-      Script: {instanceID: 8134}
+      Script: {instanceID: 6938}
     - Class: 114
-      Script: {instanceID: 8596}
+      Script: {instanceID: 7752}
     - Class: 114
-      Script: {instanceID: 39406}
+      Script: {instanceID: 8142}
     - Class: 114
-      Script: {instanceID: 40114}
+      Script: {instanceID: 8604}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -378,9 +380,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5452}
     - Class: 114
-      Script: {instanceID: 6228}
+      Script: {instanceID: 6230}
     - Class: 114
-      Script: {instanceID: 6570}
+      Script: {instanceID: 6572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -531,43 +533,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5804}
     - Class: 114
-      Script: {instanceID: 5822}
+      Script: {instanceID: 5816}
     - Class: 114
-      Script: {instanceID: 5864}
+      Script: {instanceID: 5824}
     - Class: 114
-      Script: {instanceID: 6044}
+      Script: {instanceID: 5866}
     - Class: 114
-      Script: {instanceID: 6228}
+      Script: {instanceID: 6046}
     - Class: 114
-      Script: {instanceID: 6350}
+      Script: {instanceID: 6230}
     - Class: 114
-      Script: {instanceID: 6570}
+      Script: {instanceID: 6352}
     - Class: 114
-      Script: {instanceID: 6578}
+      Script: {instanceID: 6572}
     - Class: 114
       Script: {instanceID: 6580}
     - Class: 114
-      Script: {instanceID: 7024}
+      Script: {instanceID: 6582}
     - Class: 114
-      Script: {instanceID: 7204}
+      Script: {instanceID: 7030}
     - Class: 114
-      Script: {instanceID: 7744}
+      Script: {instanceID: 7210}
     - Class: 114
-      Script: {instanceID: 7748}
+      Script: {instanceID: 7752}
     - Class: 114
-      Script: {instanceID: 7844}
+      Script: {instanceID: 7756}
     - Class: 114
-      Script: {instanceID: 7978}
+      Script: {instanceID: 7852}
     - Class: 114
-      Script: {instanceID: 8134}
+      Script: {instanceID: 7986}
     - Class: 114
-      Script: {instanceID: 8264}
+      Script: {instanceID: 8142}
     - Class: 114
-      Script: {instanceID: 8570}
+      Script: {instanceID: 8272}
     - Class: 114
-      Script: {instanceID: 8596}
+      Script: {instanceID: 8578}
     - Class: 114
-      Script: {instanceID: 39406}
+      Script: {instanceID: 8604}
+    - Class: 114
+      Script: {instanceID: 158556}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -663,7 +667,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: cc750669ef03118e549a520d038c7eca
+      Hash: a1952eacd9286ef8c91bf36acac829a0
     assemblyName: Assembly-CSharp
     namespaceName: SocialSDK
     className: WorldHandler
@@ -1815,6 +1819,12 @@ ScriptsOnlyBuild:
     className: PunPlayerScores
   - hash:
       serializedVersion: 2
+      Hash: caaf4dd07f74cdf9097e720280d3a840
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PhotonPlayerManager
+  - hash:
+      serializedVersion: 2
       Hash: 4ea783b41b19fc5492b99a0e1b5d845d
     assemblyName: PhotonUnityNetworking.Demos
     namespaceName: Photon.Pun.Demo.SlotRacer
@@ -2011,6 +2021,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnDragMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 8bcaaee68763b60359eef57b88072b64
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: RoomManger
   - hash:
       serializedVersion: 2
       Hash: 20a120e55ad3ab65556328d5fd8309dd
@@ -2505,16 +2521,10 @@ ScriptsOnlyBuild:
     className: GroundCheck
   - hash:
       serializedVersion: 2
-      Hash: caaf4dd07f74cdf9097e720280d3a840
+      Hash: 949fc268a29f75a2e592c625b132ab73
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: PhotonPlayerManager
-  - hash:
-      serializedVersion: 2
-      Hash: 8bcaaee68763b60359eef57b88072b64
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: RoomManger
+    className: NametagSync
   platform: 19
   scenePathNames:
   - Assets/SocialSDK/Scenes/Main Menu.unity

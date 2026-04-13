@@ -12,6 +12,11 @@ namespace SocialSDK {
         bool isCreating = false;
         bool joinedRoom = false;
 
+        // Private Data for Loading and Joining a instance.
+        private string roomName;
+        private RoomOptions roomOptions;
+        private bool isLoadingWorld = false;
+
         void Start() {
             if (!PhotonNetwork.IsConnected) {
                 Debug.Log("Connecting to NameServer...");
@@ -20,12 +25,17 @@ namespace SocialSDK {
             }
         }
 
+        /// <summary>
+        /// Creates a Photon Pun Instance (Room)
+        /// </summary>
+        /// <param name="worldName"></param>
+        /// <param name="publisher"></param>
         public void CreateInstance(string worldName, string publisher) {
             if (isCreating || !PhotonNetwork.IsConnectedAndReady) return;
             if (PhotonNetwork.InRoom) LeaveRoom();
             isCreating = true;
             int instanceID = 12321;
-            string roomName = $"{publisher}_{worldName}_{instanceID}";
+            roomName = $"{publisher}_{worldName}_{instanceID}";
 
             RoomOptions options = new RoomOptions();
             options.MaxPlayers = 20;
@@ -36,10 +46,11 @@ namespace SocialSDK {
             roomProps.Add("w_pub", publisher);
             roomProps.Add("owner", socialPlayer.displayName.text);
             
-
-
             options.CustomRoomProperties = roomProps;
             options.CustomRoomPropertiesForLobby = new string[] { "w_name", "w_pub", "owner" };
+
+            // Save room options in InstanceCreationData.
+            roomOptions = options;
 
             // Storing metadata for player
             ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
@@ -48,78 +59,97 @@ namespace SocialSDK {
 
             PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
 
-            PhotonNetwork.JoinOrCreateRoom(roomName, options, null);
+            // Go ahead and load the world first.
+            worldHandler.LoadWorld(publisher, worldName);
+            isLoadingWorld = true;
         }
 
+
+        /// <summary>
+        /// Join a existing Instance (Room).
+        /// </summary>
+        /// <param name="roomName"></param>
         public void JoinInstance(string roomName) {
             PhotonNetwork.JoinRoom(roomName);
         }
 
+        /// <summary>
+        /// Runs when the player decides to leave, and maybe join a new Instance (Room).
+        /// </summary>
+        public void LeaveRoom() { PhotonNetwork.LeaveRoom(); }
+
+        /// <summary>
+        /// Callback for when the world handler is done loading a world. and spawns a player visual (Desktop or VR soon to be added).
+        /// </summary>
+        public void PlayerLoadedWorld() {
+            // Setup The Avatar (Capule currently)
+            isLoadingWorld = false;
+            PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, null);
+        }
+
+        // ---------------------
+        // EVENT CALLBACKS
+        // ---------------------
+
+        /// <summary>
+        /// Runs When the player connects to the Photon Pun Servers.
+        /// </summary>
         public override void OnConnectedToMaster() {
             Debug.Log("On Master Server. Joining Lobby...");
             PhotonNetwork.JoinLobby();
         }
 
+        /// <summary>
+        /// Runs when the player joins a lobby.
+        /// </summary>
         public override void OnJoinedLobby() {
             Debug.Log("Ready for Matchmaking!");
         }
 
-        public override void OnDisconnected(DisconnectCause cause) {
-            Debug.LogError($"Disconnected: {cause}");
-            // If disconnected, disable buttons again
-        }
-
+        /// <summary>
+        /// Runs when a player joins a room.
+        /// </summary>
         public override void OnJoinedRoom() {
             // Get Properties & Load in World.
             base.OnJoinedRoom();
             joinedRoom = true;
-            StartCoroutine(DelayedLoad());
-
-        }
-
-        public override void OnPlayerEnteredRoom(Player newPlayer) {
-            Debug.Log($"Player Joined: {newPlayer.NickName}");
-            if (PhotonNetwork.InRoom) {
+            if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
                 GameObject spawnPoint = GameObject.Find("Spawn Here");
                 Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
                 PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
             }
         }
 
-        public void LeaveRoom() {
-            PhotonNetwork.LeaveRoom();
+        /// <summary>
+        /// Try to fix the "can't see host" problem for 2nd player.
+        /// </summary>
+        /// <param name="newPlayer"></param>
+        public override void OnPlayerEnteredRoom(Player newPlayer) {
+            Debug.Log($"Player Joined: {newPlayer.NickName}");
         }
 
-        IEnumerator DelayedLoad() {
-            yield return new WaitForSeconds(1.0f);
+        // ---------------------
+        // ERROR EVENT CALLBACKS
+        // ---------------------
 
-            var props = PhotonNetwork.CurrentRoom.CustomProperties;
-            string worldName = (string)props["w_name"];
-            string worldPublisher = (string)props["w_pub"];
-
-            worldHandler.LoadWorld(worldPublisher, worldName);
-        }
-
+        /// <summary>
+        /// Runs when the player fails to create a run.
+        /// </summary>
+        /// <param name="returnCode"></param>
+        /// <param name="message"></param>
         public override void OnCreateRoomFailed(short returnCode, string message) {
             // If it fails, reset your 'isCreating' flag so they can try again
             isCreating = false;
             Debug.LogError("Create Failed: " + message);
         }
 
-        public void PlayerLoadedWorld() {
-            // Setup The Avatar (Capule currently)
-            StartCoroutine(SpawnWithDelay());
-        }
-
-        IEnumerator SpawnWithDelay() {
-            // Wait for the network to settle after the scene load
-            yield return new WaitForSeconds(1.0f);
-
-            if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
-                GameObject spawnPoint = GameObject.Find("Spawn Here");
-                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
-                PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
-            }
+        /// <summary>
+        /// Handle disconnection on errors with server.
+        /// </summary>
+        /// <param name="cause"></param>
+        public override void OnDisconnected(DisconnectCause cause) {
+            Debug.LogError($"Disconnected: {cause}");
+            // If disconnected, disable buttons again
         }
     }
 }

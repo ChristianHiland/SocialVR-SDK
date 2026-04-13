@@ -16,7 +16,11 @@ public class WorldInfoScreen : MonoBehaviour {
     public WorldTile worldTile;
     public string worldname;
     public Multiplayer multiplayerManager;
+    public WorldInstances worldInstances;
 
+    private void Awake() {
+        worldInstances.enabled = true;
+    }
 
     public void PopulateWorldInfo(string world_name, string world_publisher, Texture2D world_thumbnail) {
         worldName.text = world_name;

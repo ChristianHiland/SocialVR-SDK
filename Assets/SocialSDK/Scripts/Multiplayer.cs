@@ -9,6 +9,12 @@ namespace SocialSDK {
     public class Multiplayer : MonoBehaviourPunCallbacks {
         public SocialPlayer socialPlayer;
         public WorldHandler worldHandler;
+        public string platformType = "Desktop";
+
+        public Transform headTarget;
+        public Transform leftTarget;
+        public Transform rightTarget;
+
         bool isCreating = false;
         bool joinedRoom = false;
 
@@ -114,9 +120,21 @@ namespace SocialSDK {
             base.OnJoinedRoom();
             joinedRoom = true;
             if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
-                GameObject spawnPoint = GameObject.Find("Spawn Here");
-                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
-                PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
+                if (platformType == "VR") {
+                    GameObject spawnPoint = GameObject.Find("Spawn Here");
+                    Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                    GameObject vrVisual = PhotonNetwork.Instantiate("VR Visual", pos, Quaternion.identity);
+                    IKTargetFollowVRRig ikManager = vrVisual.GetComponent<IKTargetFollowVRRig>();
+                    ikManager.head.vrTarget = headTarget;
+                    ikManager.leftHand.vrTarget = leftTarget;
+                    ikManager.rightHand.vrTarget = rightTarget;
+
+                }
+                else {
+                    GameObject spawnPoint = GameObject.Find("Spawn Here");
+                    Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                    PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
+                }
             }
         }
 

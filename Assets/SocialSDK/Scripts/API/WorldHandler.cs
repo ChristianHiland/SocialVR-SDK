@@ -7,6 +7,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.UI;
 
 namespace SocialSDK {
     public class WorldHandler : MonoBehaviour {

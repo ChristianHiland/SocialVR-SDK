@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
-public class VRPlayerInput : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class VRPlayerInput : MonoBehaviour {
+    public GameObject menuUI;
+
+
+    public InputActionReference menuButton;
+
+    void Start() {
+        menuButton.action.started += ToggleMenu;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
     }
+
+    private void ToggleMenu(InputAction.CallbackContext context) {
+        menuUI.SetActive(!menuUI.activeSelf);
+    }
+
 }

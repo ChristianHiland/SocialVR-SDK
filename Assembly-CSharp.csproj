@@ -82,6 +82,7 @@
     <Compile Include="Assets\SocialSDK\Scripts\World\SocialVR World.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\FirstPersonMovement.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\TextToggleIsOnTransition.cs" />
+    <Compile Include="Assets\SocialSDK\VR Body\IKTargetFollowVRRig.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\GroundCheck.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Multiplayer.cs" />
@@ -96,18 +97,21 @@
     <Compile Include="Assets\SocialSDK\Scripts\Asset Files\Settings.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\TextButtonTransition.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Zoom.cs" />
+    <Compile Include="Assets\SocialSDK\VR Body\AnimateOnInput.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Helpers\KeepAlive.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\SocialDll.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\ErrorWorld.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Structs.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Jump.cs" />
+    <Compile Include="Assets\SocialSDK\VR Body\IKFootSolver.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\API.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\ChatIdCheckerUI.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Helpers\Interaction\PlayerInteract.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Helpers\World Loading\WorldActionLoader.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\API_OLD.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Photon\NetworkAuthenticator.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\DEBUG\VRRendererFixer.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Player\VR\VRPlayerInput.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\FirstPersonLook.cs" />
   </ItemGroup>
@@ -995,6 +999,14 @@
       <HintPath>Library\ScriptAssemblies\Unity.XR.Interaction.Toolkit.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Animation.Rigging.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1011,16 +1023,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.XR.CoreUtils">
       <HintPath>Library\ScriptAssemblies\Unity.XR.CoreUtils.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.XR.OpenXR">
@@ -1059,6 +1071,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Animation.Rigging">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.XR.OpenXR.Features.OculusQuestSupport">
       <HintPath>Library\ScriptAssemblies\Unity.XR.OpenXR.Features.OculusQuestSupport.dll</HintPath>
       <Private>False</Private>
@@ -1073,6 +1089,10 @@
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">

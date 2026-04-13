@@ -70,12 +70,20 @@ namespace SocialSDK {
         }
 
         public override void OnJoinedRoom() {
-
             // Get Properties & Load in World.
             base.OnJoinedRoom();
             joinedRoom = true;
             StartCoroutine(DelayedLoad());
 
+        }
+
+        public override void OnPlayerEnteredRoom(Player newPlayer) {
+            Debug.Log($"Player Joined: {newPlayer.NickName}");
+            if (PhotonNetwork.InRoom) {
+                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
+            }
         }
 
         public void LeaveRoom() {
@@ -107,7 +115,7 @@ namespace SocialSDK {
             // Wait for the network to settle after the scene load
             yield return new WaitForSeconds(1.0f);
 
-            if (PhotonNetwork.InRoom) {
+            if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
                 GameObject spawnPoint = GameObject.Find("Spawn Here");
                 Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
                 PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);

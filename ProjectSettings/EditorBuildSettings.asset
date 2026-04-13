@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Photon Test.unity
     guid: ac1bf17f8d4775a41a4499b3c544d9b2
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fa805e9f480d0e649ab796e81dceddc2, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 84122245005a8a64e850ecf14dd2504c, type: 2}

@@ -6,13 +6,14 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using SocialSDK;
+using UnityEngine.SceneManagement;
 
 namespace SocialSDK {
     public class SceneUploaderEditor : EditorWindow {
         private SceneAsset sceneToBundle;
-        private string worldName = "world";
-        private string serverUploadUrl = "http://10.35.184.62:8000/game/assets/uploadWorld";
-        private string publisherMetadata = "SocialSDK";
+        private string worldName = "";
+        private string serverURL = "http://10.35.184.62:8000/";
+        private string publisherMetadata = "";
         private Camera worldThumbnailCamera;
         private int width = 1920;
         private int height = 1080;
@@ -26,14 +27,15 @@ namespace SocialSDK {
         private void OnGUI() {
             GUILayout.Label("Social World Uploader", EditorStyles.boldLabel);
 
-            // 1. Scene Selection Field
+            // Getting Social World GameObject
+            SocialWorld socialWorld = GameObject.FindObjectOfType<SocialWorld>();
+            worldName = socialWorld.worldName;
+            publisherMetadata = socialWorld.publisherUsername;
+
+            // 1. Scene
             // Allows dragging a scene file into the window
-            sceneToBundle = (SceneAsset)EditorGUILayout.ObjectField(
-                "Scene to Upload",
-                sceneToBundle,
-                typeof(SceneAsset),
-                false
-            );
+            string scenePath = SceneManager.GetActiveScene().path;
+            sceneToBundle = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
 
             // 2. World Name Field
             worldName = EditorGUILayout.TextField("World Name", worldName);
@@ -49,7 +51,7 @@ namespace SocialSDK {
             // 4. Action Button
             GUI.enabled = sceneToBundle != null; // Disable button if no scene is selected
             if (GUILayout.Button("Build & Upload World")) {
-                BuildAndUploadBundle(sceneToBundle, worldName, serverUploadUrl, publisherMetadata);
+                BuildAndUploadBundle(sceneToBundle, worldName, serverURL + "game/assets/uploadWorld", publisherMetadata);
             }
             
             if (GUILayout.Button("Upload World Thumbnail")) {
@@ -129,7 +131,8 @@ namespace SocialSDK {
                 // E. Error checking unchanged
                 if (uwr.result == UnityWebRequest.Result.Success) {
                     Debug.Log($"✅ Successfully uploaded '{worldName}'. Server Response: {uwr.downloadHandler.text}");
-                    MakeWorldThumbnail();
+                    if (worldThumbnailCamera != null)
+                        MakeWorldThumbnail();
                 }else {
                     Debug.LogError($"Upload failed! Error: {uwr.error}. Status: {uwr.responseCode}");
                 }
@@ -165,7 +168,7 @@ namespace SocialSDK {
         }
 
         void WorldDoneUploading() {
-            EditorCoroutineUtility.StartCoroutineOwnerless(UploadWorldThumbnail(worldName, publisherMetadata, "http://127.0.0.1:8002/game/assets/uploadWorldThumbnail"));
+            EditorCoroutineUtility.StartCoroutineOwnerless(UploadWorldThumbnail(worldName, publisherMetadata, serverURL + "game/assets/uploadWorldThumbnail"));
         }
 
         void MakeWorldThumbnail() {

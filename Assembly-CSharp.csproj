@@ -81,7 +81,6 @@
     <Compile Include="Assets\SocialSDK\Scripts\Photon\AvatarSetup.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Helpers\SceneRefHandler.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\CapsLockHighlight.cs" />
-    <Compile Include="Assets\SocialSDK\Scripts\World\SocialVR World.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\FirstPersonMovement.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\SocialSDK\VR Body\IKTargetFollowVRRig.cs" />
@@ -107,6 +106,7 @@
     <Compile Include="Assets\SocialSDK\Scripts\SocialDll.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\ErrorWorld.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\World\SocialWorld.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\NonNativeKeyboard.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Structs.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\Components\Jump.cs" />

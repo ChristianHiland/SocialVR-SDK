@@ -11,7 +11,7 @@ public class PlayerNotification : MonoBehaviour {
     }
 
     private IEnumerator FadeAndMove() {
-        float duration = 2.0f;
+        float duration = 9.0f;
         float elapsed = 0f;
 
         Vector3 startPos = new Vector3(0, -437.1f, 0);

@@ -9,6 +9,7 @@ namespace SocialSDK {
     public class Multiplayer : MonoBehaviourPunCallbacks {
         public SocialPlayer socialPlayer;
         public WorldHandler worldHandler;
+        public PlayerNotification playerNotification;
         public string platformType = "Desktop";
 
         public Transform headTarget;
@@ -26,6 +27,7 @@ namespace SocialSDK {
         private bool isLoadingNextWorld = false;
 
         void Start() {
+            nextWorldInfo = new WorldInfoGet();
             if (!PhotonNetwork.IsConnected) {
                 Debug.Log("Connecting to NameServer...");
                 PhotonNetwork.ConnectUsingSettings();
@@ -40,19 +42,21 @@ namespace SocialSDK {
         /// <param name="publisher"></param>
         public void CreateInstance(string worldName, string publisher) {
             if (isCreating || !PhotonNetwork.IsConnectedAndReady) return;
-            // If in room leave it.
-            if (CheckRoomStatus()) {
-                LeaveRoom(worldName, publisher);
-                return;
+
+            nextWorldInfo.name = worldName;
+            nextWorldInfo.publisher = publisher;
+
+            if (PhotonNetwork.InRoom) {
+                Debug.Log("In a room, leaving first...");
+                isLoadingNextWorld = true;
+                PhotonNetwork.LeaveRoom();
+                // Logic will continue in OnLeftRoom()
+            } else {
+                Debug.Log("Not in a room, loading world directly...");
+                SetupRoomOptions(worldName, publisher);
+                worldHandler.LoadWorld(publisher, worldName);
+                isLoadingWorld = true;
             }
-
-            // Setup room Options
-            SetupRoomOptions(worldName, publisher);
-            
-
-            // Go ahead and load the world first.
-            worldHandler.LoadWorld(publisher, worldName);
-            isLoadingWorld = true;
         }
 
 
@@ -104,8 +108,10 @@ namespace SocialSDK {
 
         public override void OnLeftRoom() {
             if (isLoadingNextWorld) {
+                isLoadingNextWorld = false;
                 SetupRoomOptions(nextWorldInfo.name, nextWorldInfo.publisher);
-                
+                worldHandler.LoadWorld(nextWorldInfo.publisher, nextWorldInfo.name);
+                isLoadingWorld = true;
             }
         }
 
@@ -116,16 +122,17 @@ namespace SocialSDK {
             // Get Properties & Load in World.
             base.OnJoinedRoom();
             joinedRoom = true;
+            isCreating = false;
             if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
                 if (platformType == "VR") {
                     GameObject spawnPoint = GameObject.Find("Spawn Here");
                     Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
                     GameObject vrVisual = PhotonNetwork.Instantiate("VR Visual", pos, Quaternion.identity);
                     IKTargetFollowVRRig ikManager = vrVisual.GetComponent<IKTargetFollowVRRig>();
+                    SocialAvatar avatarManager = vrVisual.GetComponent<SocialAvatar>();
                     ikManager.head.vrTarget = headTarget;
                     ikManager.leftHand.vrTarget = leftTarget;
                     ikManager.rightHand.vrTarget = rightTarget;
-
                 }
                 else {
                     GameObject spawnPoint = GameObject.Find("Spawn Here");
@@ -140,7 +147,16 @@ namespace SocialSDK {
         /// </summary>
         /// <param name="newPlayer"></param>
         public override void OnPlayerEnteredRoom(Player newPlayer) {
+            newPlayer.CustomProperties.TryGetValue("DisplayName", out object name);
+            playerNotification.notificationText.text = $"{name} has joined this instance";
+            playerNotification.ShowMessage();
             Debug.Log($"Player Joined: {newPlayer.NickName}");
+        }
+
+        public override void OnPlayerLeftRoom(Player otherPlayer) {
+            otherPlayer.CustomProperties.TryGetValue("DisplayName", out object name);
+            playerNotification.notificationText.text = $"{name} has left this instance";
+            playerNotification.ShowMessage();
         }
 
         // ---------------------
@@ -174,7 +190,6 @@ namespace SocialSDK {
         public bool CheckRoomStatus() { return PhotonNetwork.InRoom; }
 
         public void SetupRoomOptions(string worldName, string publisher) {
-            isCreating = true;
             int instanceID = 12321;
             roomName = $"{publisher}_{worldName}_{instanceID}";
 

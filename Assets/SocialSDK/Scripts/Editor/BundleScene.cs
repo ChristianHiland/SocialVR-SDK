@@ -11,7 +11,7 @@ namespace SocialSDK {
     public class SceneUploaderEditor : EditorWindow {
         private SceneAsset sceneToBundle;
         private string worldName = "world";
-        private string serverUploadUrl = "http://10.51.109.25:8000/game/assets/uploadWorld";
+        private string serverUploadUrl = "http://10.35.184.62:8000/game/assets/uploadWorld";
         private string publisherMetadata = "SocialSDK";
         private Camera worldThumbnailCamera;
         private int width = 1920;

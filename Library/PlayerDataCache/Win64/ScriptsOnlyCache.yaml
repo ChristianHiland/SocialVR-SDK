@@ -1,0 +1,132 @@
+ScriptsOnlyBuild:
+  usedScripts:
+    Assembly-CSharp-Editor.dll:
+    - SocialSDK.SceneUploaderEditor
+    Assembly-CSharp.dll:
+    - AvatarSetup
+    - IKTargetFollowVRRig
+    - NametagSync
+    - SocialAvatar
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
+    PhotonUnityNetworking.dll:
+    - Photon.Pun.PhotonTransformView
+    - Photon.Pun.PhotonView
+    - Photon.Pun.ServerSettings
+    Unity.Animation.Rigging.dll:
+    - UnityEngine.Animations.Rigging.BoneRenderer
+    - UnityEngine.Animations.Rigging.MultiParentConstraint
+    - UnityEngine.Animations.Rigging.Rig
+    - UnityEngine.Animations.Rigging.RigBuilder
+    - UnityEngine.Animations.Rigging.TwoBoneIKConstraint
+    Unity.InputSystem.dll:
+    - UnityEngine.InputSystem.InputActionAsset
+    - UnityEngine.InputSystem.InputActionReference
+    - UnityEngine.InputSystem.InputSettings
+    - UnityEngine.InputSystem.InputSystemObject
+    - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    Unity.Rider.Editor.dll:
+    - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
+    Unity.XR.Interaction.Toolkit.Editor.dll:
+    - UnityEditor.XR.Interaction.Toolkit.XRInteractionEditorSettings
+    Unity.XR.Interaction.Toolkit.dll:
+    - UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation.XRDeviceSimulatorSettings
+    - UnityEngine.XR.Interaction.Toolkit.InteractionLayerSettings
+    Unity.XR.Management.Editor.dll:
+    - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
+    Unity.XR.Management.dll:
+    - UnityEngine.XR.Management.XRGeneralSettings
+    - UnityEngine.XR.Management.XRManagerSettings
+    Unity.XR.OpenXR.Editor.dll:
+    - UnityEditor.XR.OpenXR.OpenXRPackageSettings
+    Unity.XR.OpenXR.Features.ConformanceAutomation.dll:
+    - UnityEngine.XR.OpenXR.Features.ConformanceAutomation.ConformanceAutomationFeature
+    Unity.XR.OpenXR.Features.MockRuntime.dll:
+    - UnityEngine.XR.OpenXR.Features.Mock.MockRuntime
+    Unity.XR.OpenXR.Features.RuntimeDebugger.dll:
+    - UnityEngine.XR.OpenXR.Features.RuntimeDebugger.RuntimeDebuggerOpenXRFeature
+    Unity.XR.OpenXR.dll:
+    - UnityEngine.XR.OpenXR.Features.Extensions.PerformanceSettings.XrPerformanceSettingsFeature
+    - UnityEngine.XR.OpenXR.Features.Interactions.DPadInteraction
+    - UnityEngine.XR.OpenXR.Features.Interactions.EyeGazeInteraction
+    - UnityEngine.XR.OpenXR.Features.Interactions.HPReverbG2ControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.HandCommonPosesInteraction
+    - UnityEngine.XR.OpenXR.Features.Interactions.HandInteractionProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.KHRSimpleControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.MetaQuestTouchProControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftHandInteraction
+    - UnityEngine.XR.OpenXR.Features.Interactions.MicrosoftMotionControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.OculusTouchControllerProfile
+    - UnityEngine.XR.OpenXR.Features.Interactions.PalmPoseInteraction
+    - UnityEngine.XR.OpenXR.Features.Interactions.ValveIndexControllerProfile
+    - UnityEngine.XR.OpenXR.OpenXRLoader
+    - UnityEngine.XR.OpenXR.OpenXRSettings
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
+    UnityEditor.TestRunner.dll:
+    - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
+    - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+  serializedClasses: {}
+  methodsToPreserve: []
+  sceneClasses:
+    Assets/Imports/Mega Fantasy Props Pack/Example Scenes/Beach.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 218
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
+  scriptHashData: []
+  platform: 19
+  scenePathNames:
+  - Assets/Imports/Mega Fantasy Props Pack/Example Scenes/Beach.unity
+  playerPath: C:/Users/Wall-E/Projects/2026/SocialVR-SDK/Assets/AssetBundles/beach

@@ -54,12 +54,6 @@ namespace SocialSDK {
     public class GetWorldData {
         public List<WorldInfoGet> Worlds;
     }
-
-    public struct InstanceCreationData {
-        public RoomOptions roomOptions;
-        public ExitGames.Client.Photon.Hashtable roomProps;
-        public ExitGames.Client.Photon.Hashtable playerProps;
-    }
     
     public class Structs {
         

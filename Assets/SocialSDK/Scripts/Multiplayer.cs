@@ -20,8 +20,10 @@ namespace SocialSDK {
 
         // Private Data for Loading and Joining a instance.
         private string roomName;
+        private WorldInfoGet nextWorldInfo;                 // World Info (Name, Publisher) for joining another world.
         private RoomOptions roomOptions;
         private bool isLoadingWorld = false;
+        private bool isLoadingNextWorld = false;
 
         void Start() {
             if (!PhotonNetwork.IsConnected) {
@@ -38,32 +40,15 @@ namespace SocialSDK {
         /// <param name="publisher"></param>
         public void CreateInstance(string worldName, string publisher) {
             if (isCreating || !PhotonNetwork.IsConnectedAndReady) return;
-            if (PhotonNetwork.InRoom) LeaveRoom();
-            isCreating = true;
-            int instanceID = 12321;
-            roomName = $"{publisher}_{worldName}_{instanceID}";
+            // If in room leave it.
+            if (CheckRoomStatus()) {
+                LeaveRoom(worldName, publisher);
+                return;
+            }
 
-            RoomOptions options = new RoomOptions();
-            options.MaxPlayers = 20;
-
-            // Storing metadata for world
-            ExitGames.Client.Photon.Hashtable roomProps = new ExitGames.Client.Photon.Hashtable();
-            roomProps.Add("w_name", worldName);
-            roomProps.Add("w_pub", publisher);
-            roomProps.Add("owner", socialPlayer.displayName.text);
+            // Setup room Options
+            SetupRoomOptions(worldName, publisher);
             
-            options.CustomRoomProperties = roomProps;
-            options.CustomRoomPropertiesForLobby = new string[] { "w_name", "w_pub", "owner" };
-
-            // Save room options in InstanceCreationData.
-            roomOptions = options;
-
-            // Storing metadata for player
-            ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
-            playerProps.Add("DisplayName", socialPlayer.displayName.text);
-            playerProps.Add("Rank", socialPlayer.rankText.text);
-
-            PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
 
             // Go ahead and load the world first.
             worldHandler.LoadWorld(publisher, worldName);
@@ -82,7 +67,12 @@ namespace SocialSDK {
         /// <summary>
         /// Runs when the player decides to leave, and maybe join a new Instance (Room).
         /// </summary>
-        public void LeaveRoom() { PhotonNetwork.LeaveRoom(); }
+        public void LeaveRoom(string worldName, string publisher) {
+            nextWorldInfo.name = worldName;
+            nextWorldInfo.publisher = publisher;
+            isLoadingNextWorld = true;
+            PhotonNetwork.LeaveRoom();
+        }
 
         /// <summary>
         /// Callback for when the world handler is done loading a world. and spawns a player visual (Desktop or VR soon to be added).
@@ -110,6 +100,13 @@ namespace SocialSDK {
         /// </summary>
         public override void OnJoinedLobby() {
             Debug.Log("Ready for Matchmaking!");
+        }
+
+        public override void OnLeftRoom() {
+            if (isLoadingNextWorld) {
+                SetupRoomOptions(nextWorldInfo.name, nextWorldInfo.publisher);
+                
+            }
         }
 
         /// <summary>
@@ -169,5 +166,40 @@ namespace SocialSDK {
             Debug.LogError($"Disconnected: {cause}");
             // If disconnected, disable buttons again
         }
+
+        // ---------------------
+        // Helpers
+        // ---------------------
+    
+        public bool CheckRoomStatus() { return PhotonNetwork.InRoom; }
+
+        public void SetupRoomOptions(string worldName, string publisher) {
+            isCreating = true;
+            int instanceID = 12321;
+            roomName = $"{publisher}_{worldName}_{instanceID}";
+
+            RoomOptions options = new RoomOptions();
+            options.MaxPlayers = 20;
+
+            // Storing metadata for world
+            ExitGames.Client.Photon.Hashtable roomProps = new ExitGames.Client.Photon.Hashtable();
+            roomProps.Add("w_name", worldName);
+            roomProps.Add("w_pub", publisher);
+            roomProps.Add("owner", socialPlayer.displayName.text);
+            
+            options.CustomRoomProperties = roomProps;
+            options.CustomRoomPropertiesForLobby = new string[] { "w_name", "w_pub", "owner" };
+
+            // Save room options in InstanceCreationData.
+            roomOptions = options;
+
+            // Storing metadata for player
+            ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
+            playerProps.Add("DisplayName", socialPlayer.displayName.text);
+            playerProps.Add("Rank", socialPlayer.rankText.text);
+
+            PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
+        }
+
     }
 }

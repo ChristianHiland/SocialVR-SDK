@@ -19,4 +19,7 @@ namespace SocialSDK {
     
     [System.Serializable]
     public class WorldThumbnailProcessed : UnityEvent<string> { }
+
+    [System.Serializable]
+    public class GetInstanceList : UnityEvent<InstanceList> { }
 }

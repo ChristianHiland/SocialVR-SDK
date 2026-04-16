@@ -10,6 +10,7 @@ namespace SocialSDK {
         public SocialPlayer socialPlayer;
         public WorldHandler worldHandler;
         public PlayerNotification playerNotification;
+        public API _api;
         public string platformType = "Desktop";
 
         public Transform headTarget;
@@ -21,6 +22,9 @@ namespace SocialSDK {
 
         // Private Data for Loading and Joining a instance.
         private string roomName;
+        private string instanceid;
+        private string world_name;
+        private string world_publisher;
         private WorldInfoGet nextWorldInfo;                 // World Info (Name, Publisher) for joining another world.
         private RoomOptions roomOptions;
         private bool isLoadingWorld = false;
@@ -64,8 +68,9 @@ namespace SocialSDK {
         /// Join a existing Instance (Room).
         /// </summary>
         /// <param name="roomName"></param>
-        public void JoinInstance(string roomName) {
-            PhotonNetwork.JoinRoom(roomName);
+        public void JoinInstance(string instance_name) {
+
+            PhotonNetwork.JoinRoom(instance_name);
         }
 
         /// <summary>
@@ -109,6 +114,7 @@ namespace SocialSDK {
         public override void OnLeftRoom() {
             if (isLoadingNextWorld) {
                 isLoadingNextWorld = false;
+                StartCoroutine(_api.RemoveWorldInstance(world_name, world_publisher, instanceid));
                 SetupRoomOptions(nextWorldInfo.name, nextWorldInfo.publisher);
                 worldHandler.LoadWorld(nextWorldInfo.publisher, nextWorldInfo.name);
                 isLoadingWorld = true;
@@ -190,8 +196,12 @@ namespace SocialSDK {
         public bool CheckRoomStatus() { return PhotonNetwork.InRoom; }
 
         public void SetupRoomOptions(string worldName, string publisher) {
-            int instanceID = 12321;
+            int instanceID = Random.Range(0, 348939202);
+            string instanceID_str = $"{instanceID}";
             roomName = $"{publisher}_{worldName}_{instanceID}";
+            instanceid = instanceID_str;
+            world_name = worldName;
+            world_publisher = publisher;
 
             RoomOptions options = new RoomOptions();
             options.MaxPlayers = 20;
@@ -214,6 +224,7 @@ namespace SocialSDK {
             playerProps.Add("Rank", socialPlayer.rankText.text);
 
             PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
+            StartCoroutine(_api.CreateWorldInstance(worldName, publisher, socialPlayer.displayName.text, roomName, instanceID_str));
         }
 
     }

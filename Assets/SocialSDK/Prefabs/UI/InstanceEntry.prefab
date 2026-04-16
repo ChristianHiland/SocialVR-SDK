@@ -121,7 +121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8889543732842850499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4035525479199410649}
+        m_TargetAssemblyTypeName: InstanceEntry, Assembly-CSharp
+        m_MethodName: JoinInstance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4035525479199410649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: {fileID: 2785027735368408557}
   room_name: 
+  multiplayerManager: {fileID: 0}
 --- !u!1 &2570825509474320232
 GameObject:
   m_ObjectHideFlags: 0

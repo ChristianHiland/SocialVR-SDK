@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf805acd15754d4db3650d351683cee7, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  serverURL: http://10.35.184.62:8000/
+  serverURL: http://170.187.201.130:8001/
   userLoginFile: User/player_login.info
   worldPath: Worlds/
   worldThumbnailPath: Worlds/thumbnails/

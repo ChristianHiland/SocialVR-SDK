@@ -26,18 +26,21 @@ namespace SocialSDK {
         public DownloadProcessed downloadProcessed;
         public WorldListProcessed worldListProcessed;
         public WorldThumbnailProcessed worldThumbnailProcessed;
-        
+        public GetInstanceList getInstancesProcessed;
+
         [Header("Error Handling")] 
         public string errorReason;
         public bool erroredScene = false;
         
         void Start() {
+            // Pinging Server to check for status
+            StartCoroutine(PingLunGames());
             // Finding Components in Game.
             worldHandler = GameObject.Find("SocialSDK").GetComponent<WorldHandler>();
             string result = _socialDll.HandleRustString(SocialDll.checkForPresentLogin(Path.Combine(Application.persistentDataPath, "User/player_login.info")));
-            if (result == "true")
-            {
+            if (result == "true") {
                 string loginContent = LoadFile(Path.Combine(Application.persistentDataPath, "User/player_login.info"));
+                Debug.Log(loginContent);
                 UserData responseData = JsonUtility.FromJson<UserData>(loginContent);
                 loginProcessed.Invoke(responseData);
             }
@@ -189,8 +192,96 @@ namespace SocialSDK {
             }
             worldThumbnailProcessed.Invoke(Path.Combine(Application.persistentDataPath, $"{settings.worldThumbnailPath}{worldName}_{publisher}.png"));
         }
-        
-        
+
+        private IEnumerator PingLunGames() {
+            string fullUrl = $"{settings.serverURL}";
+            using (var uwr = new UnityWebRequest(fullUrl, UnityWebRequest.kHttpVerbGET)) {
+                uwr.SetRequestHeader("Content-Type", "application/json");
+                uwr.downloadHandler = new DownloadHandlerBuffer();
+                // Sending Request
+                yield return uwr.SendWebRequest();
+                // Error Checking.
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "GetWorldList"); }
+                if (uwr.downloadHandler.text == "\"online\"") {
+                    Debug.Log("LunGames API is online and working!");
+                } else {
+                    Debug.LogError("LunGames API is offline and not working!");
+                }
+                Debug.Log(uwr.downloadHandler.text);
+            }
+        }
+
+        // Instance Managment
+
+        public IEnumerator GetWorldInstances(string worldName, string publisher) {
+            string url = settings.serverURL + "game/online/getInstances";
+
+            // 1. Create the form data
+            WWWForm form = new WWWForm();
+            form.AddField("worldName", worldName);
+            form.AddField("publisher", publisher);
+
+            // 2. Create the Request
+            using (UnityWebRequest www = UnityWebRequest.Post(url, form)) {
+                www.timeout = 10;
+
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success) {
+                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode}");
+                } else {
+                    string jsonResponse = www.downloadHandler.text;
+                    Debug.Log("Instances Received: " + jsonResponse);
+                    getInstancesProcessed.Invoke(JsonUtility.FromJson<InstanceList>(jsonResponse));
+                }
+            }
+        }
+
+        public IEnumerator CreateWorldInstance(string worldName, string publisher, string owner, string instanceName, string instanceID) {
+            string url = settings.serverURL + "game/online/createInstance";
+            Debug.Log(url);
+            // 1. Create the form data
+            WWWForm form = new WWWForm();
+            form.AddField("worldName", worldName);
+            form.AddField("publisher", publisher);
+            form.AddField("owner", owner);
+            form.AddField("instanceName", instanceName);
+            form.AddField("instanceID", instanceID);
+
+            // 2. Create the Request
+            using (UnityWebRequest www = UnityWebRequest.Post(url, form)) {
+                www.timeout = 10;
+
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success) {
+                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode} | URL: {url}");
+                }
+            }
+        }
+
+        public IEnumerator RemoveWorldInstance(string worldName, string publisher, string id) {
+            string url = settings.serverURL + "game/online/removeInstance";
+            Debug.Log(url);
+            // 1. Create the form data
+            WWWForm form = new WWWForm();
+            form.AddField("worldName", worldName);
+            form.AddField("publisher", publisher);
+            form.AddField("instanceID", id);
+
+            // 2. Create the Request
+            using (UnityWebRequest www = UnityWebRequest.Post(url, form)) {
+                www.timeout = 10;
+
+                yield return www.SendWebRequest();
+
+                if (www.result != UnityWebRequest.Result.Success) {
+                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode} | URL: {url}");
+                }
+            }
+        }
+
+
         // Helper Functions
 
         public void ErrorHappened(string reason, string function) {
@@ -213,7 +304,12 @@ namespace SocialSDK {
         
         public void Save<T>(T dataToSave, string filePath) {
             string jsonString = JsonUtility.ToJson(dataToSave, true);
+            string directory = Path.GetDirectoryName(filePath);
+
             try {
+                if (!Directory.Exists(directory)) {
+                    Directory.CreateDirectory(directory);
+                }
                 File.WriteAllText(filePath, jsonString);
                 Debug.Log($"Saved File: {filePath}");
             }catch (Exception e) {
@@ -224,11 +320,11 @@ namespace SocialSDK {
         public string LoadFile(string filePath) {
             if (File.Exists(filePath)) {
                 string fileContent = File.ReadAllText(filePath);
+                return fileContent;
             }else {
                 Debug.Log($"[LOADING ERROR]: File Not Found: {filePath}");
                 return "";
             }
-
             return "";
         }
     }

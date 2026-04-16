@@ -55,6 +55,18 @@ namespace SocialSDK {
         public List<WorldInfoGet> Worlds;
     }
     
+    [System.Serializable]
+    public class Room {
+        public string InstanceName;
+        public string Owner;
+        public string InstanceID;
+    }
+
+    [System.Serializable]
+    public class InstanceList {
+        public Room[] Rooms;
+    }
+
     public class Structs {
         
     }

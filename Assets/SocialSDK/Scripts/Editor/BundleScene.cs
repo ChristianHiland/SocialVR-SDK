@@ -11,9 +11,9 @@ using UnityEngine.SceneManagement;
 namespace SocialSDK {
     public class SceneUploaderEditor : EditorWindow {
         private SceneAsset sceneToBundle;
-        private string worldName = "";
-        private string serverURL = "http://10.35.184.62:8000/";
-        private string publisherMetadata = "";
+        private string worldName = "world";
+        private string serverURL = "http://170-187-201-130.ip.linodeusercontent.com:8001/";
+        private string publisherMetadata = "publisher";
         private Camera worldThumbnailCamera;
         private int width = 1920;
         private int height = 1080;

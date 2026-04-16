@@ -49,7 +49,6 @@ ScriptsOnlyBuild:
     - SocialSDK.PlayerControl
     - SocialSDK.Settings
     - SocialSDK.SocialPlayer
-    - SocialSDK.UI.WorldDownloader
     - SocialSDK.WorldHandler
     - SocialSDK.WorldTile
     - WorldInfoScreen
@@ -173,6 +172,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.VerticalLayoutGroup
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.PhysicsRaycaster
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
@@ -190,6 +190,7 @@ ScriptsOnlyBuild:
   serializedClasses:
     Assembly-CSharp:
     - SocialSDK.DownloadProcessed
+    - SocialSDK.GetInstanceList
     - SocialSDK.GetWorldData
     - SocialSDK.LoginProcessed
     - SocialSDK.SignupProcessed
@@ -270,6 +271,12 @@ ScriptsOnlyBuild:
     fullTypeName: SocialSDK.Multiplayer
     methodName: PlayerLoadedWorld
   - assembly: Assembly-CSharp
+    fullTypeName: InstanceEntry
+    methodName: JoinInstance
+  - assembly: Assembly-CSharp
+    fullTypeName: SocialSDK.WorldTile
+    methodName: OnClicked
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: LoginDataDone
   - assembly: Assembly-CSharp
@@ -285,35 +292,32 @@ ScriptsOnlyBuild:
     fullTypeName: SocialSDK.WorldHandler
     methodName: LoadThumbnail
   - assembly: Assembly-CSharp
+    fullTypeName: WorldInstances
+    methodName: PopulateInstances
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: Signup
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: Login
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: UnityEngine.CoreModule
-    fullTypeName: UnityEngine.GameObject
-    methodName: SetActive
-  - assembly: Assembly-CSharp
-    fullTypeName: SocialSDK.WorldTile
-    methodName: OnClicked
-  - assembly: Assembly-CSharp
-    fullTypeName: SocialSDK.WorldTile
-    methodName: OnClicked
   - assembly: Assembly-CSharp
     fullTypeName: SocialSDK.SocialPlayer
     methodName: SaveUserRuntime
@@ -329,6 +333,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SocialSDK.Multiplayer
     methodName: PlayerLoadedWorld
+  - assembly: Assembly-CSharp
+    fullTypeName: InstanceEntry
+    methodName: JoinInstance
+  - assembly: Assembly-CSharp
+    fullTypeName: SocialSDK.WorldTile
+    methodName: OnClicked
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
@@ -375,23 +385,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2208}
+      Script: {instanceID: 2210}
     - Class: 114
-      Script: {instanceID: 3056}
+      Script: {instanceID: 3058}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 3956}
+      Script: {instanceID: 3960}
     - Class: 114
-      Script: {instanceID: 7786}
+      Script: {instanceID: 7790}
     - Class: 114
-      Script: {instanceID: 9456}
+      Script: {instanceID: 9460}
     - Class: 114
-      Script: {instanceID: 10644}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 11192}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11896}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -434,17 +444,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1600}
     - Class: 114
-      Script: {instanceID: 3318}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 3628}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 6870}
+      Script: {instanceID: 6874}
     - Class: 114
-      Script: {instanceID: 7266}
+      Script: {instanceID: 7270}
     - Class: 114
-      Script: {instanceID: 8388}
+      Script: {instanceID: 8392}
     - Class: 114
-      Script: {instanceID: 8912}
+      Script: {instanceID: 8916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -533,127 +543,129 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1746}
     - Class: 114
-      Script: {instanceID: 1924}
+      Script: {instanceID: 1926}
     - Class: 114
-      Script: {instanceID: 1994}
+      Script: {instanceID: 1996}
     - Class: 114
-      Script: {instanceID: 2208}
+      Script: {instanceID: 2210}
     - Class: 114
-      Script: {instanceID: 2478}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 2482}
+      Script: {instanceID: 2484}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 2622}
+      Script: {instanceID: 2624}
     - Class: 114
-      Script: {instanceID: 3056}
+      Script: {instanceID: 3058}
     - Class: 114
-      Script: {instanceID: 3318}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 3370}
+      Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 3628}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3912}
+      Script: {instanceID: 3916}
     - Class: 114
-      Script: {instanceID: 3956}
+      Script: {instanceID: 3960}
     - Class: 114
-      Script: {instanceID: 4068}
+      Script: {instanceID: 4072}
     - Class: 114
-      Script: {instanceID: 4120}
+      Script: {instanceID: 4124}
     - Class: 114
-      Script: {instanceID: 4142}
+      Script: {instanceID: 4146}
     - Class: 114
-      Script: {instanceID: 4330}
+      Script: {instanceID: 4334}
     - Class: 114
-      Script: {instanceID: 4342}
+      Script: {instanceID: 4346}
     - Class: 114
-      Script: {instanceID: 4410}
+      Script: {instanceID: 4414}
     - Class: 114
-      Script: {instanceID: 4638}
+      Script: {instanceID: 4642}
     - Class: 114
-      Script: {instanceID: 4746}
+      Script: {instanceID: 4750}
     - Class: 114
-      Script: {instanceID: 5098}
+      Script: {instanceID: 5102}
     - Class: 114
-      Script: {instanceID: 5256}
+      Script: {instanceID: 5260}
     - Class: 114
-      Script: {instanceID: 5266}
+      Script: {instanceID: 5270}
     - Class: 114
-      Script: {instanceID: 5516}
+      Script: {instanceID: 5520}
     - Class: 114
-      Script: {instanceID: 5692}
+      Script: {instanceID: 5630}
     - Class: 114
-      Script: {instanceID: 5712}
+      Script: {instanceID: 5696}
     - Class: 114
-      Script: {instanceID: 6102}
+      Script: {instanceID: 5716}
     - Class: 114
-      Script: {instanceID: 6218}
+      Script: {instanceID: 6106}
     - Class: 114
-      Script: {instanceID: 6554}
+      Script: {instanceID: 6222}
     - Class: 114
-      Script: {instanceID: 6662}
+      Script: {instanceID: 6558}
     - Class: 114
-      Script: {instanceID: 6704}
+      Script: {instanceID: 6666}
     - Class: 114
-      Script: {instanceID: 6956}
+      Script: {instanceID: 6708}
     - Class: 114
-      Script: {instanceID: 7158}
+      Script: {instanceID: 6960}
     - Class: 114
-      Script: {instanceID: 7180}
+      Script: {instanceID: 7162}
     - Class: 114
-      Script: {instanceID: 7266}
+      Script: {instanceID: 7184}
     - Class: 114
-      Script: {instanceID: 7416}
+      Script: {instanceID: 7270}
     - Class: 114
-      Script: {instanceID: 7526}
+      Script: {instanceID: 7420}
     - Class: 114
-      Script: {instanceID: 7782}
+      Script: {instanceID: 7530}
     - Class: 114
       Script: {instanceID: 7786}
     - Class: 114
-      Script: {instanceID: 7800}
+      Script: {instanceID: 7790}
     - Class: 114
-      Script: {instanceID: 7866}
+      Script: {instanceID: 7804}
     - Class: 114
-      Script: {instanceID: 7998}
+      Script: {instanceID: 7870}
     - Class: 114
-      Script: {instanceID: 8128}
+      Script: {instanceID: 8002}
     - Class: 114
-      Script: {instanceID: 8182}
+      Script: {instanceID: 8132}
     - Class: 114
-      Script: {instanceID: 8388}
+      Script: {instanceID: 8186}
     - Class: 114
-      Script: {instanceID: 8582}
+      Script: {instanceID: 8392}
     - Class: 114
-      Script: {instanceID: 8912}
+      Script: {instanceID: 8586}
     - Class: 114
-      Script: {instanceID: 8926}
+      Script: {instanceID: 8916}
     - Class: 114
       Script: {instanceID: 8930}
     - Class: 114
-      Script: {instanceID: 9586}
+      Script: {instanceID: 8934}
     - Class: 114
-      Script: {instanceID: 9858}
+      Script: {instanceID: 9590}
     - Class: 114
-      Script: {instanceID: 9876}
+      Script: {instanceID: 9862}
     - Class: 114
-      Script: {instanceID: 10532}
+      Script: {instanceID: 9880}
     - Class: 114
-      Script: {instanceID: 10644}
+      Script: {instanceID: 10536}
     - Class: 114
-      Script: {instanceID: 10770}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 10980}
+      Script: {instanceID: 10774}
     - Class: 114
-      Script: {instanceID: 11192}
+      Script: {instanceID: 10984}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11850}
+      Script: {instanceID: 11402}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11854}
+    - Class: 114
+      Script: {instanceID: 11896}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1055,7 +1067,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: 70fb00fde7f1d305440f4742a009b2ce
+      Hash: f7966f49f15e3d77ca777ea53c885c2d
     assemblyName: Assembly-CSharp
     namespaceName: SocialSDK
     className: Multiplayer
@@ -1505,7 +1517,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 64c0ec796cbc57275b9ae3838aef679c
+      Hash: e57f4cbbf68b1867c62b889396adab57
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: MainMenu
@@ -1577,7 +1589,7 @@ ScriptsOnlyBuild:
     className: KeepAlive
   - hash:
       serializedVersion: 2
-      Hash: 387423438bcf539d677ec1bd68327739
+      Hash: ad67692fc8664702ae8e934fbef8c3f2
     assemblyName: Assembly-CSharp
     namespaceName: SocialSDK
     className: API
@@ -1619,7 +1631,7 @@ ScriptsOnlyBuild:
     className: OpenXRRestarter
   - hash:
       serializedVersion: 2
-      Hash: f43655f9859dd3ff8de83cb8a70072e4
+      Hash: ab612b9b9bb3463c1e2fcc678905ed7c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: WorldInfoScreen
@@ -2681,7 +2693,7 @@ ScriptsOnlyBuild:
     className: PlayerListCell
   - hash:
       serializedVersion: 2
-      Hash: 79a9ec5ca724a38d532965fa711115b4
+      Hash: c0f3c891b8a403919638711e09583d74
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InstanceEntry
@@ -3479,7 +3491,7 @@ ScriptsOnlyBuild:
     className: UICollection
   - hash:
       serializedVersion: 2
-      Hash: 67e605ec008b0f6125949f57f68abcc7
+      Hash: 025ce100a8730c1907cc83e30d390c7f
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: WorldInstances

@@ -18,6 +18,8 @@ public class WorldInfoScreen : MonoBehaviour {
     public Multiplayer multiplayerManager;
     public WorldInstances worldInstances;
 
+    public API _api;
+
     private void Awake() {
         worldInstances.enabled = true;
     }
@@ -32,6 +34,7 @@ public class WorldInfoScreen : MonoBehaviour {
         UnityAction action = worldTile.CreatePrivateInstance();
         createPrivateButton.onClick.AddListener(action);
         createNewInstance.onClick.AddListener(CreateNewInstancePublic(world_name, world_publisher));
+        StartCoroutine(_api.GetWorldInstances(world_name, world_publisher));
     }
 
     public UnityAction CreateNewInstancePublic(string world_Name, string world_publisher) {

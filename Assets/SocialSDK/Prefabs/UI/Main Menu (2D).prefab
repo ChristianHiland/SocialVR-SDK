@@ -222,9 +222,9 @@ RectTransform:
   - {fileID: 4155215464320214961}
   - {fileID: 8319084103549273172}
   - {fileID: 3082675044218607791}
-  - {fileID: 7790836883072531183}
   - {fileID: 1896942108265924121}
   - {fileID: 5823662271291597182}
+  - {fileID: 7790836883072531183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -311,11 +311,12 @@ MonoBehaviour:
   username: {fileID: 6340632375558702849}
   password: {fileID: 4668288509367687978}
   UserLoginData:
-    name: 
-    username: 
-    password: 
-    email: 
-    userdata: 
+    DisplayName: 
+    Assets:
+      pfp: 
+      Stickers: []
+    Options:
+      Rank: 
 --- !u!1 &381360534233487887
 GameObject:
   m_ObjectHideFlags: 0

@@ -427,6 +427,7 @@
 "Assets/SocialSDK/Scripts/API/API.cs"
 "Assets/SocialSDK/Scripts/API/API_OLD.cs"
 "Assets/SocialSDK/Scripts/API/ErrorWorld.cs"
+"Assets/SocialSDK/Scripts/API/Multiplayer.cs"
 "Assets/SocialSDK/Scripts/API/WorldHandler.cs"
 "Assets/SocialSDK/Scripts/Asset Files/Settings.cs"
 "Assets/SocialSDK/Scripts/Avatar/SocialAvatar.cs"

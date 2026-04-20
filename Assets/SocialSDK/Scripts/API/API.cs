@@ -31,16 +31,20 @@ namespace SocialSDK {
         [Header("Error Handling")] 
         public string errorReason;
         public bool erroredScene = false;
-        
+
+
+        void Awake() {
+            // Finding components.
+            worldHandler = GameObject.Find("SocialSDK").GetComponent<WorldHandler>();
+        }
+
         void Start() {
             // Pinging Server to check for status
             StartCoroutine(PingLunGames());
-            // Finding Components in Game.
-            worldHandler = GameObject.Find("SocialSDK").GetComponent<WorldHandler>();
+            // Checking for login file, and logining in.
             string result = _socialDll.HandleRustString(SocialDll.checkForPresentLogin(Path.Combine(Application.persistentDataPath, "User/player_login.info")));
             if (result == "true") {
                 string loginContent = LoadFile(Path.Combine(Application.persistentDataPath, "User/player_login.info"));
-                Debug.Log(loginContent);
                 UserData responseData = JsonUtility.FromJson<UserData>(loginContent);
                 loginProcessed.Invoke(responseData);
             }
@@ -203,7 +207,6 @@ namespace SocialSDK {
                 // Error Checking.
                 if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "GetWorldList"); }
                 if (uwr.downloadHandler.text == "\"online\"") {
-                    Debug.Log("LunGames API is online and working!");
                 } else {
                     Debug.LogError("LunGames API is offline and not working!");
                 }
@@ -231,7 +234,6 @@ namespace SocialSDK {
                     Debug.LogError($"API Error: {www.error} | Code: {www.responseCode}");
                 } else {
                     string jsonResponse = www.downloadHandler.text;
-                    Debug.Log("Instances Received: " + jsonResponse);
                     getInstancesProcessed.Invoke(JsonUtility.FromJson<InstanceList>(jsonResponse));
                 }
             }
@@ -311,8 +313,7 @@ namespace SocialSDK {
                     Directory.CreateDirectory(directory);
                 }
                 File.WriteAllText(filePath, jsonString);
-                Debug.Log($"Saved File: {filePath}");
-            }catch (Exception e) {
+            } catch (Exception e) {
                 Debug.LogError($"[SAVING ERROR]: {e}");
             }
         }
@@ -321,11 +322,10 @@ namespace SocialSDK {
             if (File.Exists(filePath)) {
                 string fileContent = File.ReadAllText(filePath);
                 return fileContent;
-            }else {
+            } else {
                 Debug.Log($"[LOADING ERROR]: File Not Found: {filePath}");
                 return "";
             }
-            return "";
         }
     }
 }

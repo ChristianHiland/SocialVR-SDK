@@ -29,13 +29,13 @@ namespace SocialSDK {
         public AudioSource loadingMusic;
 
         public UnityEvent doneLoadingWorld;
-        public Multiplayer multiplayerManager;
+        public SocialSDK.Online.Multiplayer multiplayerManager;
         
         private API _api;
         private AssetBundle _assetBundle;
         private WorldData _worldData;
 
-        private void Start() {
+        void Awake() {
             _api = gameObject.GetComponent<API>();
         }
 

@@ -5,17 +5,33 @@ using TMPro;
 using SocialSDK;
 
 public class InstanceEntry : MonoBehaviour {
+    [Header("UI")]
     public TMP_Text roomName;
+    public TMP_Text roomOwner;
+    public TMP_Text roomPlayerCount;
+    
+    [Header("Data")]
     public string room_name;
-    public Multiplayer multiplayerManager;
+    string world_name;
+    string world_publisher;
 
-    public void Setup(string room_Name, Multiplayer multiplayer_Manager) {
+    [Header("Scripts")]
+    public SocialSDK.Online.Multiplayer multiplayerManager;
+
+    public void Setup(string room_Name, SocialSDK.Online.Multiplayer multiplayer_Manager) {
         multiplayerManager = multiplayer_Manager;
-        roomName.text = room_Name; 
+        room_name = room_Name;
+        string[] parts = room_Name.Split('_');
+        if (parts.Length >= 3) {
+            world_publisher = parts[0];
+            world_name = parts[1];
+            string id = parts[2];
+            roomName.text = $"#{id}";
+        }
     }
 
     public void JoinInstance() {
         Debug.Log("Joining instance");
-        multiplayerManager.JoinInstance(roomName.text);
+        multiplayerManager.JoinInstance(room_name, world_name, world_publisher);
     }
 }

@@ -22,6 +22,7 @@ namespace SocialSDK {
 
         // Private Data for Loading and Joining a instance.
         private string roomName;
+        private string room_Name = "";
         private string instanceid;
         private string world_name;
         private string world_publisher;
@@ -44,7 +45,7 @@ namespace SocialSDK {
         /// </summary>
         /// <param name="worldName"></param>
         /// <param name="publisher"></param>
-        public void CreateInstance(string worldName, string publisher) {
+        public void CreateInstance(string worldName, string publisher, string room_name = "") {
             if (isCreating || !PhotonNetwork.IsConnectedAndReady) return;
 
             nextWorldInfo.name = worldName;
@@ -52,12 +53,12 @@ namespace SocialSDK {
 
             if (PhotonNetwork.InRoom) {
                 Debug.Log("In a room, leaving first...");
+                room_Name = room_name;
                 isLoadingNextWorld = true;
                 PhotonNetwork.LeaveRoom();
-                // Logic will continue in OnLeftRoom()
             } else {
                 Debug.Log("Not in a room, loading world directly...");
-                SetupRoomOptions(worldName, publisher);
+                SetupRoomOptions(worldName, publisher, room_name);
                 worldHandler.LoadWorld(publisher, worldName);
                 isLoadingWorld = true;
             }
@@ -68,9 +69,10 @@ namespace SocialSDK {
         /// Join a existing Instance (Room).
         /// </summary>
         /// <param name="roomName"></param>
-        public void JoinInstance(string instance_name) {
-
-            PhotonNetwork.JoinRoom(instance_name);
+        public void JoinInstance(string instance_name, string worldName, string publisher) {
+            SetupRoomOptions(worldName, publisher, instance_name);
+            worldHandler.LoadWorld(publisher, worldName);
+            isLoadingWorld = true;
         }
 
         /// <summary>
@@ -104,18 +106,11 @@ namespace SocialSDK {
             PhotonNetwork.JoinLobby();
         }
 
-        /// <summary>
-        /// Runs when the player joins a lobby.
-        /// </summary>
-        public override void OnJoinedLobby() {
-            Debug.Log("Ready for Matchmaking!");
-        }
-
         public override void OnLeftRoom() {
             if (isLoadingNextWorld) {
                 isLoadingNextWorld = false;
                 StartCoroutine(_api.RemoveWorldInstance(world_name, world_publisher, instanceid));
-                SetupRoomOptions(nextWorldInfo.name, nextWorldInfo.publisher);
+                SetupRoomOptions(nextWorldInfo.name, nextWorldInfo.publisher, room_Name);
                 worldHandler.LoadWorld(nextWorldInfo.publisher, nextWorldInfo.name);
                 isLoadingWorld = true;
             }
@@ -130,21 +125,7 @@ namespace SocialSDK {
             joinedRoom = true;
             isCreating = false;
             if (PhotonNetwork.IsConnectedAndReady && PhotonNetwork.InRoom) {
-                if (platformType == "VR") {
-                    GameObject spawnPoint = GameObject.Find("Spawn Here");
-                    Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
-                    GameObject vrVisual = PhotonNetwork.Instantiate("VR Visual", pos, Quaternion.identity);
-                    IKTargetFollowVRRig ikManager = vrVisual.GetComponent<IKTargetFollowVRRig>();
-                    SocialAvatar avatarManager = vrVisual.GetComponent<SocialAvatar>();
-                    ikManager.head.vrTarget = headTarget;
-                    ikManager.leftHand.vrTarget = leftTarget;
-                    ikManager.rightHand.vrTarget = rightTarget;
-                }
-                else {
-                    GameObject spawnPoint = GameObject.Find("Spawn Here");
-                    Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
-                    PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
-                }
+                SetupAvatar();
             }
         }
 
@@ -156,7 +137,6 @@ namespace SocialSDK {
             newPlayer.CustomProperties.TryGetValue("DisplayName", out object name);
             playerNotification.notificationText.text = $"{name} has joined this instance";
             playerNotification.ShowMessage();
-            Debug.Log($"Player Joined: {newPlayer.NickName}");
         }
 
         public override void OnPlayerLeftRoom(Player otherPlayer) {
@@ -186,7 +166,6 @@ namespace SocialSDK {
         /// <param name="cause"></param>
         public override void OnDisconnected(DisconnectCause cause) {
             Debug.LogError($"Disconnected: {cause}");
-            // If disconnected, disable buttons again
         }
 
         // ---------------------
@@ -195,10 +174,33 @@ namespace SocialSDK {
     
         public bool CheckRoomStatus() { return PhotonNetwork.InRoom; }
 
-        public void SetupRoomOptions(string worldName, string publisher) {
+        public void SetupAvatar() {
+            if (platformType == "VR") {
+                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                GameObject vrVisual = PhotonNetwork.Instantiate("VR Visual", pos, Quaternion.identity);
+                IKTargetFollowVRRig ikManager = vrVisual.GetComponent<IKTargetFollowVRRig>();
+                SocialAvatar avatarManager = vrVisual.GetComponent<SocialAvatar>();
+                ikManager.head.vrTarget = headTarget;
+                ikManager.leftHand.vrTarget = leftTarget;
+                ikManager.rightHand.vrTarget = rightTarget;
+            } else {
+                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
+                PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
+            }
+        }
+
+        public void SetupRoomOptions(string worldName, string publisher, string room_name = "") {
             int instanceID = Random.Range(0, 348939202);
             string instanceID_str = $"{instanceID}";
-            roomName = $"{publisher}_{worldName}_{instanceID}";
+            roomName = "";
+            if (room_name == "") {
+                roomName = $"{publisher}_{worldName}_{instanceID}";
+            } else {
+                roomName = room_name;
+            }
+            
             instanceid = instanceID_str;
             world_name = worldName;
             world_publisher = publisher;

@@ -5,7 +5,7 @@ using SocialSDK;
 
 public class WorldInstances : MonoBehaviour {
     public WorldInfoScreen worldInfoScreen;
-    public Multiplayer multiplayerManager;
+    public SocialSDK.Online.Multiplayer multiplayerManager;
     public GameObject instanceEntryPrefab;
     public Transform container;
 

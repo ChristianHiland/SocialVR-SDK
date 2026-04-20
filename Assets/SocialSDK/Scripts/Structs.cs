@@ -57,14 +57,22 @@ namespace SocialSDK {
     
     [System.Serializable]
     public class Room {
+        public string worldName;
+        public string worldPublisher;
         public string InstanceName;
-        public string Owner;
         public string InstanceID;
+        public string Owner;
     }
 
     [System.Serializable]
     public class InstanceList {
         public Room[] Rooms;
+    }
+
+    [System.Serializable]
+    public enum PlatformType {
+        VR,
+        Desktop
     }
 
     public class Structs {

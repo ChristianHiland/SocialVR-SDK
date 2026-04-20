@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldInfoScreen: {fileID: 1677853972}
-  multiplayerManager: {fileID: 136877096885220089}
+  multiplayerManager: {fileID: 1805492971}
   instanceEntryPrefab: {fileID: 1522741164299656599, guid: f896c241d14b3c14bbc71c76e8e303eb, type: 3}
   container: {fileID: 1625615876}
 --- !u!1 &89675552
@@ -577,6 +577,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3395416476403404806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219202781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 809351348006271476, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+  m_PrefabInstance: {fileID: 3395416476403404805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845a0fcd012e8804b8f1508d3b393b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &287051730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4098,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000061035156, y: -64.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1805492969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1805492970}
+  - component: {fileID: 1805492971}
+  m_Layer: 0
+  m_Name: Multiplayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1805492970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805492969}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2138593853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805492971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805492969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c76050285283c340abc0f4954eb3b19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformType: 1
+  headVRTarget: {fileID: 0}
+  leftVRTarget: {fileID: 0}
+  rightVRTarget: {fileID: 0}
+  socialPlayer: {fileID: 219202781}
+  playerNotification: {fileID: 1368985998}
 --- !u!1 &1813032209
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,17 +4513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ad735565ea2c84ca5e7162013b117b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &136877096885220089 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8522264591879427545, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+--- !u!4 &2138593853 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3101547984201601927, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
   m_PrefabInstance: {fileID: 3395416476403404805}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b55d4c86caadf2a4fa700feacf3093c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &226930652880783342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5413,6 +5468,10 @@ PrefabInstance:
       propertyPath: worldInstances
       value: 
       objectReference: {fileID: 54260265}
+    - target: {fileID: 1223709533331047130, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+      propertyPath: multiplayerManager
+      value: 
+      objectReference: {fileID: 1805492971}
     - target: {fileID: 3986076364419539260, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5452,7 +5511,15 @@ PrefabInstance:
     - target: {fileID: 4974334549971374719, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       propertyPath: multiplayerManager
       value: 
-      objectReference: {fileID: 136877096885220089}
+      objectReference: {fileID: 1805492971}
+    - target: {fileID: 4974334549971374719, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+      propertyPath: doneLoadingWorld.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1805492971}
+    - target: {fileID: 4974334549971374719, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+      propertyPath: doneLoadingWorld.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SocialSDK.Online.Multiplayer, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5513125332206630762, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5502,6 +5569,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2138593852}
     - target: {fileID: 8522264591879427545, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522264591879427545, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       propertyPath: headTarget
       value: 
       objectReference: {fileID: 202230696}
@@ -5519,12 +5590,16 @@ PrefabInstance:
       objectReference: {fileID: 1368985998}
     m_RemovedComponents:
     - {fileID: 5770644634087778466, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+    - {fileID: 8522264591879427545, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
     m_RemovedGameObjects:
     - {fileID: 760983668717864472, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5513125332206630762, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 202230696}
+    - targetCorrespondingSourceObject: {fileID: 3101547984201601927, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1805492970}
     - targetCorrespondingSourceObject: {fileID: 2988187569034126140, guid: abdf43e812e0cd54fae5b17f4fa027a1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1368985997}

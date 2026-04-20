@@ -67,6 +67,7 @@
     <Compile Include="Assets\SocialSDK\Scripts\UI\WorldInfoScreen.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\WorldHandler.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\ChannelSelector.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\API\Multiplayer.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\NamePickNewGui.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Photon\PhotonPlayerManager.cs" />

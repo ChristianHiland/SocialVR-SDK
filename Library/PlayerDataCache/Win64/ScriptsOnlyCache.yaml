@@ -46,6 +46,7 @@ ScriptsOnlyBuild:
     - SocialSDK.API
     - SocialSDK.ErrorWorld
     - SocialSDK.Multiplayer
+    - SocialSDK.Online.Multiplayer
     - SocialSDK.PlayerControl
     - SocialSDK.Settings
     - SocialSDK.SocialPlayer
@@ -193,6 +194,7 @@ ScriptsOnlyBuild:
     - SocialSDK.GetInstanceList
     - SocialSDK.GetWorldData
     - SocialSDK.LoginProcessed
+    - SocialSDK.PlatformType
     - SocialSDK.SignupProcessed
     - SocialSDK.UserAssets
     - SocialSDK.UserData
@@ -268,7 +270,7 @@ ScriptsOnlyBuild:
     fullTypeName: Menu
     methodName: PopulateWorlds
   - assembly: Assembly-CSharp
-    fullTypeName: SocialSDK.Multiplayer
+    fullTypeName: SocialSDK.Online.Multiplayer
     methodName: PlayerLoadedWorld
   - assembly: Assembly-CSharp
     fullTypeName: InstanceEntry
@@ -666,6 +668,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11854}
     - Class: 114
       Script: {instanceID: 11896}
+    - Class: 114
+      Script: {instanceID: 74928}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -2693,7 +2697,7 @@ ScriptsOnlyBuild:
     className: PlayerListCell
   - hash:
       serializedVersion: 2
-      Hash: c0f3c891b8a403919638711e09583d74
+      Hash: 5d34d574398537fd4e3dfa47a833fa7e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: InstanceEntry
@@ -3795,6 +3799,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: GroundCheck
+  - hash:
+      serializedVersion: 2
+      Hash: 1c7685e4c998f1ec151c09e359807378
+    assemblyName: Assembly-CSharp
+    namespaceName: SocialSDK.Online
+    className: Multiplayer
   platform: 19
   scenePathNames:
   - Assets/SocialSDK/Scenes/Main Menu.unity

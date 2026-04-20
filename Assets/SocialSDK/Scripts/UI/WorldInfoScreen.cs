@@ -15,7 +15,7 @@ public class WorldInfoScreen : MonoBehaviour {
     public Button createNewInstance;
     public WorldTile worldTile;
     public string worldname;
-    public Multiplayer multiplayerManager;
+    public SocialSDK.Online.Multiplayer multiplayerManager;
     public WorldInstances worldInstances;
 
     public API _api;

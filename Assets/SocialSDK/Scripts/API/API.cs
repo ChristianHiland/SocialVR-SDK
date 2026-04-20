@@ -205,12 +205,11 @@ namespace SocialSDK {
                 // Sending Request
                 yield return uwr.SendWebRequest();
                 // Error Checking.
-                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "GetWorldList"); }
+                if (uwr.result == UnityWebRequest.Result.ConnectionError || uwr.result == UnityWebRequest.Result.ProtocolError || uwr.result != UnityWebRequest.Result.Success) { ErrorHappened(uwr.error, "PingLunGames"); }
                 if (uwr.downloadHandler.text == "\"online\"") {
                 } else {
                     Debug.LogError("LunGames API is offline and not working!");
                 }
-                Debug.Log(uwr.downloadHandler.text);
             }
         }
 
@@ -230,12 +229,9 @@ namespace SocialSDK {
 
                 yield return www.SendWebRequest();
 
-                if (www.result != UnityWebRequest.Result.Success) {
-                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode}");
-                } else {
-                    string jsonResponse = www.downloadHandler.text;
-                    getInstancesProcessed.Invoke(JsonUtility.FromJson<InstanceList>(jsonResponse));
-                }
+                if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result != UnityWebRequest.Result.Success) { ErrorHappened(www.error, "GetWorldInstances"); }
+                string jsonResponse = www.downloadHandler.text;
+                getInstancesProcessed.Invoke(JsonUtility.FromJson<InstanceList>(jsonResponse));
             }
         }
 
@@ -256,9 +252,7 @@ namespace SocialSDK {
 
                 yield return www.SendWebRequest();
 
-                if (www.result != UnityWebRequest.Result.Success) {
-                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode} | URL: {url}");
-                }
+                if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result != UnityWebRequest.Result.Success) { ErrorHappened(www.error, "CreateWorldInstance"); }
             }
         }
 
@@ -277,9 +271,7 @@ namespace SocialSDK {
 
                 yield return www.SendWebRequest();
 
-                if (www.result != UnityWebRequest.Result.Success) {
-                    Debug.LogError($"API Error: {www.error} | Code: {www.responseCode} | URL: {url}");
-                }
+                if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result != UnityWebRequest.Result.Success) { ErrorHappened(www.error, "RemoveWorldInstance"); }
             }
         }
 
@@ -291,15 +283,21 @@ namespace SocialSDK {
             erroredScene = true;
             SceneManager.LoadScene(1);
             worldHandler.sceneLoadingUI.SetActive(false);
-            TMP_Text reasonText = GameObject.Find("Reason").GetComponent<TMP_Text>();
-            reasonText.text = reason;
+            GameObject reasonTextObj = GameObject.Find("Reason");
+            if (reasonTextObj != null) {
+                TMP_Text reasonText = reasonTextObj.GetComponent<TMP_Text>();
+                if (reasonText != null) reasonText.text = reason;
+            }
             errorReason = reason;
+            worldHandler.loadingMusic.Stop();
         }
         
         void Update() {
             if (erroredScene) {
                 GameObject player = GameObject.Find("Player");
                 Transform stickTo = GameObject.Find("StickTo").GetComponent<Transform>();
+                TMP_Text reasonText = GameObject.Find("Reason").GetComponent<TMP_Text>();
+                reasonText.text = errorReason;
                 player.transform.position = stickTo.position;
             }
         }

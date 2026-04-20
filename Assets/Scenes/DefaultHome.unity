@@ -166,6 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 191966116}
+  - component: {fileID: 191966117}
   m_Layer: 0
   m_Name: Spawn Here
   m_TagString: Untagged
@@ -188,6 +189,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &191966117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191966115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23625cac9a3478241953b7615eee5e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldName: DefaultHome
+  publisherUsername: SocialSDK
+  playerSpeed: 5
+  playerCanRun: 1
+  playerRunSpeed: 9
+  localPlayerPrefab: {fileID: 4273605841395514424, guid: 6d88452797e3cce4a88438df58f16740, type: 3}
+  SpawnLocalPlayer: 0
 --- !u!1 &230324443
 GameObject:
   m_ObjectHideFlags: 0

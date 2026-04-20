@@ -93,6 +93,9 @@ namespace SocialSDK.Online {
             nextWorldInfo.name = worldName;
             nextWorldInfo.publisher = publisher;
             isLoadingNextWorld = true;
+            if (PhotonNetwork.CurrentRoom.PlayerCount == 1) {
+                StartCoroutine(_api.RemoveWorldInstance(worldName, publisher, roomInfo.InstanceID));
+            }
             PhotonNetwork.LeaveRoom();
         }
 
@@ -110,6 +113,15 @@ namespace SocialSDK.Online {
         // ---------------------
         // Photon Callbacks
         // ---------------------
+
+        void OnApplicationQuit() {
+            if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient) {
+                // If there's only 1 player (you), the room will die when you leave.
+                if (PhotonNetwork.CurrentRoom.PlayerCount <= 1) {
+                    StartCoroutine(_api.RemoveWorldInstance(roomInfo.worldName, roomInfo.worldPublisher, roomInfo.InstanceID));
+                }
+            }
+        }
 
         /// <summary>
         /// Runs When the player connects to the Photon Pun Servers.
@@ -159,8 +171,17 @@ namespace SocialSDK.Online {
         // ---------------------
 
         public void SetupAvatar() {
+
+            // Getting world script
+            SocialWorld socialWorld = Object.FindAnyObjectByType<SocialWorld>();
+            if (socialWorld == null) {
+                Debug.LogError("This world does not contain a Social World Script! Can not continue");
+                _api.ErrorHappened("This world does not contain a Social World Script! Can not continue. Prehaps this is an old SocialVR world? If you are the owner, please update to the latest SDK, and Document.", "Multiplayer.cs, SetupAvatar()");
+                return;
+            }
+
             if (platformType == PlatformType.VR) {
-                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                GameObject spawnPoint = socialWorld.gameObject;
                 Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
                 GameObject vrVisual = PhotonNetwork.Instantiate("VR Visual", pos, Quaternion.identity);
                 IKTargetFollowVRRig ikManager = vrVisual.GetComponent<IKTargetFollowVRRig>();
@@ -169,7 +190,7 @@ namespace SocialSDK.Online {
                 ikManager.leftHand.vrTarget = leftVRTarget;
                 ikManager.rightHand.vrTarget = rightVRTarget;
             } else {
-                GameObject spawnPoint = GameObject.Find("Spawn Here");
+                GameObject spawnPoint = socialWorld.gameObject;
                 Vector3 pos = spawnPoint != null ? spawnPoint.transform.position : Vector3.zero;
                 PhotonNetwork.Instantiate("Player Visual", pos, Quaternion.identity);
             }

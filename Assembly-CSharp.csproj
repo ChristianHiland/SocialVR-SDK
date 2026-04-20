@@ -115,8 +115,8 @@
     <Compile Include="Assets\SocialSDK\Scripts\API\API.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardValueKey.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Code\Utilities\ChatIdCheckerUI.cs" />
-    <Compile Include="Assets\SocialSDK\Scripts\Helpers\Interaction\PlayerInteract.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Helpers\World Loading\WorldActionLoader.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\Player\Desktop\DesktopInteracter.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\API\API_OLD.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Photon\NetworkAuthenticator.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\KeyboardKeyFunc.cs" />

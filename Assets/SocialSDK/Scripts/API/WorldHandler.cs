@@ -49,6 +49,7 @@ namespace SocialSDK {
         }
 
         public void LoadWorld(string publisher, string worldName) {
+            _api.erroredScene = false;
             menu.SetActive(false);
             sceneLoadingUI.SetActive(true);
             StartCoroutine(FadeInAudio(loadingMusic, 2.5f, .6f));
@@ -110,6 +111,7 @@ namespace SocialSDK {
         }
 
         private IEnumerator DoneLoadingWorldCoroutine() {
+            _api.erroredScene = false;
             ProgressGroupUI.SetActive(true);
             NowLoadingSceneUI.SetActive(false);
             loadingMusic.Stop();
@@ -118,7 +120,13 @@ namespace SocialSDK {
             // Wait for the end of the frame to ensure the new scene is fully integrated
             yield return new WaitForEndOfFrame();
 
-            GameObject spawnPointObj = GameObject.Find("Spawn Here");
+            SocialWorld socialWorld = Object.FindAnyObjectByType<SocialWorld>();
+            if (socialWorld == null) {
+                Debug.LogError("This world does not contain a Social World Script! Can not continue");
+                _api.ErrorHappened("This world does not contain a Social World Script! Can not continue. Prehaps this is an old SocialVR world? If you are the owner, please update to the latest SDK, and Document.", "WorldHandler.cs, DoneLoadingWorldCoroutine()");
+            }
+
+            GameObject spawnPointObj = socialWorld.gameObject;
             GameObject playerObj = GameObject.Find("Player");
 
             if (spawnPointObj != null && playerObj != null) {

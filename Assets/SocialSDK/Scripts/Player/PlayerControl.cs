@@ -15,13 +15,18 @@ namespace SocialSDK {
         public GameObject menu;
         public GameObject debugMenu;
 
+        [Header("Generic")]
+        public Transform playerRoot;
+
         [Header("Desktop")]
         public FirstPersonMovement firstPersonMovement;
         public FirstPersonLook firstPersonLook;
 
         [Header("VR")]
+        public Camera vrCamera;
         public CharacterController cc;
         public GameObject locomotionSystem;
+        public ActionBasedContinuousMoveProvider locoMovement;
 
         void Update() {
             if (platform == PlatformType.Desktop) {

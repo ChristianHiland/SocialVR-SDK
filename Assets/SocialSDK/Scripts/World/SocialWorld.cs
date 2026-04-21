@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SocialSDK {
     public class SocialWorld : MonoBehaviour {
@@ -16,11 +17,15 @@ namespace SocialSDK {
         [Header("Editor ONLY")]
         public GameObject localPlayerPrefab;
         public bool SpawnLocalPlayer = false;
+
+        [Header("Events")]
+        public UnityEvent onPlayerSpawned;
         
         void Start() {
             if (SpawnLocalPlayer) {
                 GameObject localPlayer = Instantiate(localPlayerPrefab);
                 localPlayer.transform.position = transform.position;
+                onPlayerSpawned.Invoke();
             }
         }
     }

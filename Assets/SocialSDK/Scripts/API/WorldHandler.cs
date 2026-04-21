@@ -34,9 +34,15 @@ namespace SocialSDK {
         private API _api;
         private AssetBundle _assetBundle;
         private WorldData _worldData;
+        private PlayerControl _playerControl;
 
         void Awake() {
             _api = gameObject.GetComponent<API>();
+            _playerControl = GameObject.Find("Player").GetComponent<PlayerControl>();
+            if (_playerControl == null) {
+                Debug.LogError("The player does not contain a Player Control Object!");
+                _api.ErrorHappened("The player does not contain a Player Control Object! This is a internal error, please contact SocialVR Dev", "WorldHandler.cs, Awake()");
+            }
         }
 
         public void ShowWorldInfo(string publisher, string world_name, WorldTile worldTile) {
@@ -49,6 +55,8 @@ namespace SocialSDK {
         }
 
         public void LoadWorld(string publisher, string worldName) {
+            // Load "Loading" Scene.
+            SceneManager.LoadScene(2);
             _api.erroredScene = false;
             menu.SetActive(false);
             sceneLoadingUI.SetActive(true);

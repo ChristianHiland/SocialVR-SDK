@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine;
 using UnityEditor;
+using SocialSDK.Interaction;
 
 namespace SocialSDK {
     public class SocialWorldEditor : EditorWindow {
@@ -46,12 +47,17 @@ namespace SocialSDK {
 
         void AddInteractable() {
             if (Selection.activeGameObject != null) {
-                MeshCollider meshCol = Undo.AddComponent<MeshCollider>(Selection.activeGameObject);
-                meshCol.convex = true;
-                Rigidbody objRB = Undo.AddComponent<Rigidbody>(Selection.activeGameObject);
-                objRB.useGravity = false;
-                objRB.isKinematic = true;
-                Undo.AddComponent<XRGrabInteractable>(Selection.activeGameObject);
+                SocialInteractable socialInteract = Undo.AddComponent<SocialInteractable>(Selection.activeGameObject);
+                if (Selection.activeGameObject.GetComponent<Collider>() == null) {
+                    MeshCollider meshCol = Undo.AddComponent<MeshCollider>(Selection.activeGameObject);
+                    meshCol.convex = true;
+                }
+                // Setting up rigidbody.
+                Rigidbody rb = Selection.activeGameObject.GetComponent<Rigidbody>();
+                if (rb != null) {
+                    rb.useGravity = false;
+                    rb.isKinematic = true;
+                }
             }
         }
 

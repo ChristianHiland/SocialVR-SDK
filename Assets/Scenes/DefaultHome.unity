@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 191966116}
   - component: {fileID: 191966117}
   m_Layer: 0
-  m_Name: Spawn Here
+  m_Name: Social World
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

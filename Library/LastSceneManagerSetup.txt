@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/SocialSDK/Scenes/Main Menu.unity
+- path: Assets/Scenes/Lovely Day.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

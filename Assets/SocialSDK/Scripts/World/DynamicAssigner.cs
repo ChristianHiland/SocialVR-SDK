@@ -8,7 +8,7 @@ namespace SocialSDK {
     public class AssignmentData {
         public string toAssignVar;
         public string fromVar;
-        public MonoBehaviour toScript;
+        public Behaviour toScript;
         public MonoBehaviour fromScript;
     }
     

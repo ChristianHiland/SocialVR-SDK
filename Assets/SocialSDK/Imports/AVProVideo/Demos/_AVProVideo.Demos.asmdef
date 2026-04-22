@@ -1,0 +1,17 @@
+{
+    "name": "AVProVideo.Demos",
+    "rootNamespace": "",
+    "references": [
+        "AVProVideo.Runtime",
+        "Unity.InputSystem"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,84 +1,62 @@
-using System.Collections.Generic;
-using UnityEngine.Networking;
+using YoutubeExplode.Videos.Streams;
+using RenderHeads.Media.AVProVideo;
+using System.Threading.Tasks;
 using System.Collections;
-using UnityEngine.Video;
+using YoutubeExplode;
 using UnityEngine;
 using TMPro;
 
 namespace SocialSDK.Video {
     public class SocialVideoPlayer : MonoBehaviour {
         [Header("UI")]
-        [SerializeField] VideoPlayer videoPlayer;
+        [SerializeField] MediaPlayer mediaPlayer;
         [SerializeField] TMP_Text statusText;
         [SerializeField] TMP_InputField urlInputField;
 
         [Header("Data")]
         public string youtubeUrl = "";
-        public string youtubeRedirUrl = "";
+        public bool editorStart = false;
 
         [Header("API")]
         public Settings settings;
+        private YoutubeClient _youtube = new YoutubeClient();
 
         void Awake() {
-            statusText.gameObject.SetActive(false);
+            if (statusText != null) statusText.gameObject.SetActive(false);
+        }
 
+        void Update() {
+            if (editorStart) {
+                editorStart = false;
+                StartVideo();
+            }
         }
 
         public void StartVideo() {
-            statusText.gameObject.SetActive(true);
-            if (youtubeUrl == "") {
-                youtubeUrl = urlInputField.text;
-            }
-
-            StartCoroutine(GetDirectLink(youtubeUrl));
+            if (statusText != null) statusText.gameObject.SetActive(true);
+            if (youtubeUrl == "") { youtubeUrl = urlInputField.text; }
+            ResolveAndPlay(youtubeUrl);
         }
     
-        IEnumerator GetDirectLink(string ytUrl) {
-            string url = settings.serverURL + "game/video/resolve?url=";
-            // 1. Create the form data
-            WWWForm form = new WWWForm();
-            form.AddField("url", ytUrl);
+        public async void ResolveAndPlay(string youtubeURL) {
+            if (string.IsNullOrEmpty(youtubeURL)) return;
 
-            // 2. Create the Request
-            using (UnityWebRequest www = UnityWebRequest.Get(url + UnityWebRequest.EscapeURL(ytUrl))) {
-                yield return www.SendWebRequest();
+            try {
+                statusText.text = "Getting Video Stream...";
+                var streamManifest = await _youtube.Videos.Streams.GetManifestAsync(youtubeURL);
 
-                if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError || www.result != UnityWebRequest.Result.Success) { statusText.text = "Failed. Server API."; }
+                var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
 
-                if (www.result == UnityWebRequest.Result.Success) {
-                    string jsonResponse = www.downloadHandler.text;
-                    YouTubeResolverResponse data = JsonUtility.FromJson<YouTubeResolverResponse>(jsonResponse);
-                    PlayDirect(data.url);
+                if (streamInfo != null) {
+                    statusText.text = "Playing...";
+                    mediaPlayer.OpenMedia(new MediaPath(streamInfo.Url, MediaPathType.AbsolutePathOrURL), autoPlay: true);
+                    statusText.gameObject.SetActive(false);
+                } else {
+                    Debug.LogError("No compatible stream found for video");
                 }
+            } catch (System.Exception e) {
+                Debug.LogError($"YoutubeExplode Error: {e}");
             }
         }
-
-        void PlayDirect(string url) {
-            if (videoPlayer != null) {
-                string finalUrl = url.Replace("https://", "http://");
-
-                videoPlayer.source = VideoSource.Url;
-                videoPlayer.url = finalUrl;
-
-                // CRITICAL: Clear the previous state
-                videoPlayer.Stop();
-
-                videoPlayer.Prepare();
-                videoPlayer.prepareCompleted += (vp) => {
-                    Debug.Log("Video Prepared successfully!");
-                    vp.Play();
-                };
-
-                videoPlayer.errorReceived += (vp, msg) => {
-                    Debug.LogError("Unity Video Error: " + msg);
-                };
-            }
-        }
-
-        void OnVideoPlayerReady() {
-            statusText.gameObject.SetActive(false);
-            videoPlayer.Play();
-        }
-    
     }
 }

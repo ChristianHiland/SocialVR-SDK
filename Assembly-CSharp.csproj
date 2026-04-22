@@ -56,6 +56,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Wall-E\Projects\2026\SocialVR-SDK\Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -134,41 +148,128 @@
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\FirstPersonLook.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Encoding.CodePages.8.0.0\THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.xml" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\LibSamplerate-License.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\useSharedDesignerContext.txt" />
     <None Include="Assets\Photon\PhotonChat\Demos\Demo Chat\Resources\OpenSans\Apache License.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\Hap-License.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\JsonExtensions.1.2.0\lib\netstandard2.0\JsonExtensions.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\Hap-3rdParty.txt" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\AngleSharp.1.4.0\lib\netstandard2.0\AngleSharp.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\System.Text.Json.SourceGeneration.dll" />
+    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.IO.Pipelines.9.0.2\lib\netstandard2.0\System.IO.Pipelines.dll" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\GdclMpeg4-License.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.IO.Pipelines.9.0.2\THIRD-PARTY-NOTICES.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\useSharedDesignerContext.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\lib\netstandard2.0\System.Text.Json.xml" />
+    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\YoutubeExplode.6.6.0\lib\netstandard2.0\YoutubeExplode.dll" />
+    <None Include="Assets\Packages\System.Text.Encodings.Web.9.0.2\lib\netstandard2.0\System.Text.Encodings.Web.xml" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\YoutubeExplode.6.6.0\lib\netstandard2.0\YoutubeExplode.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Packages\System.IO.Pipelines.9.0.2\LICENSE.TXT" />
+    <None Include="Assets\Packages\System.Text.Encoding.CodePages.8.0.0\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\LICENSE.TXT" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Packages\System.Text.Encodings.Web.9.0.2\lib\netstandard2.0\System.Text.Encodings.Web.dll" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\Third-Party Notices.txt" />
+    <None Include="Assets\Packages\JsonExtensions.1.2.0\lib\netstandard2.0\JsonExtensions.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Encodings.Web.9.0.2\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll" />
+    <None Include="Assets\Packages\System.Text.Encodings.Web.9.0.2\THIRD-PARTY-NOTICES.TXT" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\lib\netstandard2.0\System.Text.Json.dll" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.dll" />
+    <None Include="Assets\Packages\System.IO.Pipelines.9.0.2\lib\netstandard2.0\System.IO.Pipelines.xml" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\Photon\PhotonLibs\Metro\Photon3Unity3D.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\FacebookAudio360-License.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\SocialSDK\Imports\MRTK\StandardAssets\Shaders\MixedRealityTextMeshPro.shader" />
     <None Include="Assets\SocialSDK\Imports\MRTK\StandardAssets\Shaders\MixedRealityShaderUtils.cginc" />
+    <None Include="Assets\Packages\System.IO.Pipelines.9.0.2\useSharedDesignerContext.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\useSharedDesignerContext.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\AngleSharp.1.4.0\lib\netstandard2.0\AngleSharp.xml" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
+    <None Include="Assets\Packages\System.Text.Encodings.Web.9.0.2\useSharedDesignerContext.txt" />
     <None Include="Assets\Imports\Mega Fantasy Props Pack\README.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\HapInAvFoundation-License.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn3.11\cs\System.Text.Json.SourceGeneration.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Docs\Documentation.txt" />
+    <None Include="Assets\SocialSDK\Imports\AVProVideo\Licenses\ExoPlayer-License.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
+    <None Include="Assets\Packages\System.Text.Encoding.CodePages.8.0.0\useSharedDesignerContext.txt" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.4\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\SocialSDK\Scripts\Plugins\SocialVR_SDK.dll" />
+    <None Include="Assets\Packages\System.Text.Json.9.0.2\analyzers\dotnet\roslyn4.0\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
+    <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -503,12 +604,40 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="AngleSharp">
+      <HintPath>Assets\Packages\AngleSharp.1.4.0\lib\netstandard2.0\AngleSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.5\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.IO.Pipelines">
+      <HintPath>Assets\Packages\System.IO.Pipelines.9.0.2\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages">
+      <HintPath>Assets\Packages\System.Text.Encoding.CodePages.8.0.0\lib\netstandard2.0\System.Text.Encoding.CodePages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="YoutubeExplode">
+      <HintPath>Assets\Packages\YoutubeExplode.6.6.0\lib\netstandard2.0\YoutubeExplode.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>Assets\Packages\System.Text.Encodings.Web.9.0.2\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="JsonExtensions">
+      <HintPath>Assets\Packages\JsonExtensions.1.2.0\lib\netstandard2.0\JsonExtensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
@@ -517,6 +646,14 @@
     </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>Assets\Packages\System.Text.Json.9.0.2\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Assets\Packages\Microsoft.Bcl.AsyncInterfaces.9.0.2\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1051,12 +1188,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.XR.CoreUtils.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.XR.OpenXR">
       <HintPath>Library\ScriptAssemblies\Unity.XR.OpenXR.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.XR.OpenXR.Features.MetaQuestSupport">
@@ -1205,21 +1342,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="AVProVideo.Extensions.VisualEffectGraph.csproj">
+      <Project>{DA2AF348-4379-F053-FE2C-612A8856A8B9}</Project>
+      <Name>AVProVideo.Extensions.VisualEffectGraph</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{FCD495E4-4896-F2E8-CD25-E0AAF2A230B2}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AVProVideo.Extensions.UnityUI.Editor.csproj">
+      <Project>{62B7F096-2CE3-C6D2-A6F2-95CDEB557198}</Project>
+      <Name>AVProVideo.Extensions.UnityUI.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{FBAB208C-051F-514E-328D-6AAEE71C9293}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="AVProVideo.Demos.csproj">
+      <Project>{7EC88C24-12D0-FC54-B4C5-C392C38C37C4}</Project>
+      <Name>AVProVideo.Demos</Name>
+    </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
       <Project>{3D55F975-156E-19F5-5899-D0C3BEC7A2F0}</Project>
       <Name>PunDemos.DemoSlotcarEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="AVProVideo.Runtime.csproj">
+      <Project>{EA0AB389-8CD2-AF18-C7F3-9F7B8E6C5502}</Project>
+      <Name>AVProVideo.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonChat.csproj">
       <Project>{81835416-99D6-0708-5017-5E9F04050849}</Project>
       <Name>PhotonChat</Name>
+    </ProjectReference>
+    <ProjectReference Include="AVProVideo.Extensions.UnityUI.csproj">
+      <Project>{A226074B-FFE6-D9C3-EC0D-825D475229E6}</Project>
+      <Name>AVProVideo.Extensions.UnityUI</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
       <Project>{DAADD420-450F-6111-1F2D-958DCA2109EF}</Project>
@@ -1229,6 +1386,14 @@
       <Project>{5B0C2140-4BB7-BD03-4B92-3B3C59D36E19}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="_AVProVideo.Extensions.VideoPlayer.csproj">
+      <Project>{AE0DC858-C131-2975-CD51-5472CD62E49B}</Project>
+      <Name>_AVProVideo.Extensions.VideoPlayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="AVProVideo.Editor.csproj">
+      <Project>{7B0EEEAB-802E-B83C-81DA-1957C0A19BE3}</Project>
+      <Name>AVProVideo.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Demos.csproj">
       <Project>{E49DFDFB-B4DD-263E-94C4-4AA61168BEAD}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
@@ -1237,9 +1402,17 @@
       <Project>{950C3CB5-EF0F-F14C-CDF5-0E4879E9AE3B}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="_AVProVideo.Extensions.VideoPlayer.Editor.csproj">
+      <Project>{C9FE12BA-77C7-2415-EF81-4CA24998E7E7}</Project>
+      <Name>_AVProVideo.Extensions.VideoPlayer.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{79050B3F-9F2B-8BCE-7DB1-16E0B7C1B9CE}</Project>
       <Name>PhotonRealtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="AVProVideo.Extensions.Timeline.csproj">
+      <Project>{A94F11BF-1F06-4A59-F608-8CCFBC776011}</Project>
+      <Name>AVProVideo.Extensions.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj">
       <Project>{1C285018-14C7-1BD9-1160-E25F8A5E633C}</Project>

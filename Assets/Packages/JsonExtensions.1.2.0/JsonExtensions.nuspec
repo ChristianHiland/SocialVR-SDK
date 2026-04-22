@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>JsonExtensions</id>
+    <version>1.2.0</version>
+    <authors>Tyrrrz</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>Readme.md</readme>
+    <projectUrl>https://github.com/Tyrrrz/JsonExtensions</projectUrl>
+    <description>Various extensions to power up System.Text.Json.</description>
+    <releaseNotes>https://github.com/Tyrrrz/JsonExtensions/blob/master/Changelog.md</releaseNotes>
+    <copyright>Copyright (C) Alexey Golub</copyright>
+    <tags>system.text.json system text json extensions parsing deserialization serialization</tags>
+    <repository type="git" url="https://github.com/Tyrrrz/JsonExtensions" commit="a7f72f1a9673258411a35d5aa40453f3cc917cf4" />
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.0" />
+      <group targetFramework="net5.0" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Text.Json" version="5.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

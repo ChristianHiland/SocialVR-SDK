@@ -1,0 +1,613 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:JsonExtensions.Http.HttpExtensions">
+            <summary>
+            Extensions to bridge <see cref="N:System.Text.Json"/> and <see cref="N:System.Net.Http"/>.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Http.HttpExtensions.ReadAsJsonAsync(System.Net.Http.HttpContent,System.Threading.CancellationToken)">
+            <summary>
+            Reads the content as JSON.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Http.HttpExtensions.GetJsonAsync(System.Net.Http.HttpClient,System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Sends a GET request and reads the response content as JSON.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Http.HttpExtensions.GetJsonAsync(System.Net.Http.HttpClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Sends a GET request and reads the response content as JSON.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Json">
+            <summary>
+            Utilities for parsing JSON.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Json.Parse(System.Byte[],System.Text.Json.JsonDocumentOptions)">
+            <summary>
+            Parses binary data as JSON.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Json.Parse(System.String,System.Text.Json.JsonDocumentOptions)">
+            <summary>
+            Parses string as JSON.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Json.TryParse(System.Byte[],System.Text.Json.JsonDocumentOptions)">
+            <summary>
+            Tries to parse binary data as JSON or returns null if the input is malformed.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Json.TryParse(System.String,System.Text.Json.JsonDocumentOptions)">
+            <summary>
+            Tries to parse string as JSON or returns null if the input is malformed.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Reading.CoercionExtensions">
+            <summary>
+            Extensions for reading content from <see cref="T:System.Text.Json.JsonElement"/> with coercion.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetBooleanCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Boolean"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetBooleanCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Boolean"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetByteCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Byte"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetByteCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Byte"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetDecimalCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Decimal"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetDecimalCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Decimal"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetDoubleCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Double"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetDoubleCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Double"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetSingleCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Single"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetSingleCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Single"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt16CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Int16"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt16Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Int16"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt32CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as an <see cref="T:System.Int32"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt32Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as an <see cref="T:System.Int32"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt64CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Int64"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetInt64Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.Int64"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetSByteCoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as an <see cref="T:System.SByte"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetSByteCoerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as an <see cref="T:System.SByte"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt16CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt16"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt16Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.UInt16"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt32CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt32"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt32Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.UInt32"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt64CoercedOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt64"/>,
+             either by reading it directly or by coercing it from a string.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.CoercionExtensions.GetUInt64Coerced(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a <see cref="T:System.UInt64"/>,
+            either by reading it directly or by coercing it from a string.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Reading.MiscExtensions">
+            <summary>
+            Miscellaneous extensions for <see cref="T:System.Text.Json.JsonElement"/>.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.MiscExtensions.Deconstruct(System.Text.Json.JsonProperty,System.String@,System.Text.Json.JsonElement@)">
+            <summary>
+            Deconstructs <see cref="T:System.Text.Json.JsonProperty"/> into its name and value components.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Reading.OptionalExtensions">
+            <summary>
+            Extensions for reading content from <see cref="T:System.Text.Json.JsonElement"/> in a fault-tolerant way.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetPropertyOrNull(System.Text.Json.JsonElement,System.String)">
+             <summary>
+             Gets a property by its name.
+            
+             Returns null if the element is not an object,
+             or if the property is not defined,
+             or if the property has a null value.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetByIndexOrNull(System.Text.Json.JsonElement,System.Int32)">
+             <summary>
+             Gets a child element by its array index.
+            
+             Returns null if the element is not an array,
+             or if the index is out of bounds,
+             or if the index refers to a null value.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.EnumerateArrayOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Enumerates the element as an array.
+            
+             Returns null if the element is not an array.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.EnumerateArrayOrEmpty(System.Text.Json.JsonElement)">
+             <summary>
+             Enumerates the element as an array.
+            
+             Returns an empty enumerator if the element is not an array.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.EnumerateObjectOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Enumerates the element as an object.
+            
+             Returns null if the element is not an object.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.EnumerateObjectOrEmpty(System.Text.Json.JsonElement)">
+             <summary>
+             Enumerates the element as an object.
+            
+             Returns empty enumerator if the element is not an object.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetBooleanOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Boolean"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetByteOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Byte"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetDecimalOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Decimal"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetDoubleOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Double"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetSingleOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Single"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetInt16OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Int16"/>
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetInt32OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Int32"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetInt64OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Int64"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetSByteOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.SByte"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetUInt16OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt16"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetUInt32OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt32"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetUInt64OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.UInt64"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetStringOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.String"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetGuidOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.Guid"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetDateTimeOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.DateTime"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetDateTimeOffsetOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a <see cref="T:System.DateTimeOffset"/>.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.OptionalExtensions.GetBytesFromBase64OrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a base64-encoded byte array.
+            
+             Returns null if the element contains a value of any other kind.
+             </summary>
+        </member>
+        <member name="T:JsonExtensions.Reading.PathExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Text.Json.JsonElement"/> for dealing with paths.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.PathExtensions.GetPropertyByPathOrNull(System.Text.Json.JsonElement,System.String)">
+             <summary>
+             Gets the <see cref="T:System.Text.Json.JsonElement"/> that represents a property that matches the specified path.
+            
+             Returns null if no matching property is found.
+             </summary>
+             <remarks>This currently supports only simple paths, e.g. 'prop1.prop2.prop3'.</remarks>
+        </member>
+        <member name="M:JsonExtensions.Reading.PathExtensions.GetPropertyByPath(System.Text.Json.JsonElement,System.String)">
+            <summary>
+            Gets the <see cref="T:System.Text.Json.JsonElement"/> that represents a property that matches the specified path.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Reading.StringExtensions">
+            <summary>
+            Extensions for reading strings from <see cref="T:System.Text.Json.JsonElement"/>.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.StringExtensions.GetNonNullString(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a non-null <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.StringExtensions.GetNonEmptyStringOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a non-empty <see cref="T:System.String"/>.
+            
+             Returns null if the element contains an empty string or a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.StringExtensions.GetNonEmptyString(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a non-empty <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.StringExtensions.GetNonWhiteSpaceStringOrNull(System.Text.Json.JsonElement)">
+             <summary>
+             Gets the value of the element as a non-empty and non-whitespace <see cref="T:System.String"/>.
+            
+             Returns null if the element contains an empty string, a whitespace string, or a value of any other kind.
+             </summary>
+        </member>
+        <member name="M:JsonExtensions.Reading.StringExtensions.GetNonWhiteSpaceString(System.Text.Json.JsonElement)">
+            <summary>
+            Gets the value of the element as a non-empty and non-whitespace <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="T:JsonExtensions.Writing.OptionalExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Text.Json.Utf8JsonWriter"/> that enable conditional writing for nullable types.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteBooleanValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Boolean})">
+            <summary>
+            Writes a <see cref="T:System.Boolean"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteBoolean(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Boolean})">
+            <summary>
+            Writes a <see cref="T:System.Boolean"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Byte})">
+            <summary>
+            Writes a <see cref="T:System.Byte"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Byte})">
+            <summary>
+            Writes a <see cref="T:System.Byte"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Decimal})">
+            <summary>
+            Writes a <see cref="T:System.Decimal"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            Writes a <see cref="T:System.Decimal"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Double})">
+            <summary>
+            Writes a <see cref="T:System.Double"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Double})">
+            <summary>
+            Writes a <see cref="T:System.Double"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Single})">
+            <summary>
+            Writes a <see cref="T:System.Single"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Single})">
+            <summary>
+            Writes a <see cref="T:System.Single"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Int16})">
+            <summary>
+            Writes a <see cref="T:System.Int16"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Int16})">
+            <summary>
+            Writes a <see cref="T:System.Int16"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Int32})">
+            <summary>
+            Writes a <see cref="T:System.Int32"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Writes a <see cref="T:System.Int32"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Int64})">
+            <summary>
+            Writes a <see cref="T:System.Int64"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Int64})">
+            <summary>
+            Writes a <see cref="T:System.Int64"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.SByte})">
+            <summary>
+            Writes a <see cref="T:System.SByte"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.SByte})">
+            <summary>
+            Writes a <see cref="T:System.SByte"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.UInt16})">
+            <summary>
+            Writes a <see cref="T:System.UInt16"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.UInt16})">
+            <summary>
+            Writes a <see cref="T:System.UInt16"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.UInt32})">
+            <summary>
+            Writes a <see cref="T:System.UInt32"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.UInt32})">
+            <summary>
+            Writes a <see cref="T:System.UInt32"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumberValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.UInt64})">
+            <summary>
+            Writes a <see cref="T:System.UInt64"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteNumber(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.UInt64})">
+            <summary>
+            Writes a <see cref="T:System.UInt64"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteStringValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.Guid})">
+            <summary>
+            Writes a <see cref="T:System.Guid"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteString(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.Guid})">
+            <summary>
+            Writes a <see cref="T:System.Guid"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteStringValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTime})">
+            <summary>
+            Writes a <see cref="T:System.DateTime"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteString(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Writes a <see cref="T:System.DateTime"/> property or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteStringValue(System.Text.Json.Utf8JsonWriter,System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Writes a <see cref="T:System.DateTimeOffset"/> value or null.
+            </summary>
+        </member>
+        <member name="M:JsonExtensions.Writing.OptionalExtensions.WriteString(System.Text.Json.Utf8JsonWriter,System.String,System.Nullable{System.DateTimeOffset})">
+            <summary>
+            Writes a <see cref="T:System.DateTimeOffset"/> property or null.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -75,6 +75,11 @@ namespace SocialSDK {
         Desktop
     }
 
+    [System.Serializable]
+    public class YouTubeResolverResponse {
+        public string url;
+    }
+
     public class Structs {
         
     }

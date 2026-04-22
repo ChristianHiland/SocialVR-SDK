@@ -129,6 +129,7 @@
     <Compile Include="Assets\SocialSDK\Scripts\Player\VR\VRPlayerInput.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Avatar\SocialAvatar.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\UICollection.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\World\SocialVideoPlayer.cs" />
     <Compile Include="Assets\SocialSDK\Imports\MRTK\SDK\Experimental\NonNativeKeyboard\Scripts\SymbolDisableHighlight.cs" />
     <Compile Include="Assets\Imports\Mini First Person Controller\Scripts\FirstPersonLook.cs" />
   </ItemGroup>

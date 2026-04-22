@@ -464,6 +464,7 @@
 "Assets/SocialSDK/Scripts/World/AttachCanvasCamera.cs"
 "Assets/SocialSDK/Scripts/World/AttachToLocalPlayer.cs"
 "Assets/SocialSDK/Scripts/World/DynamicAssigner.cs"
+"Assets/SocialSDK/Scripts/World/SocialVideoPlayer.cs"
 "Assets/SocialSDK/Scripts/World/SocialWorld.cs"
 "Assets/SocialSDK/VR Body/AnimateOnInput.cs"
 "Assets/SocialSDK/VR Body/IKFootSolver.cs"

@@ -80,6 +80,19 @@ namespace SocialSDK {
         public string url;
     }
 
+    [System.Serializable]
+    public class SubtitleEntry {
+        public double startTime;
+        public double endTime;
+        public string text;
+
+        public SubtitleEntry(double start, double end, string txt) {
+            startTime = start;
+            endTime = end;
+            text = txt;
+        }
+    }
+
     public class Structs {
         
     }

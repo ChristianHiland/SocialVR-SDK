@@ -80,8 +80,8 @@ namespace SocialSDK.Online {
         /// <param name="instance_name"></param>
         /// <param name="worldName"></param>
         /// <param name="publisher"></param>
-        public void JoinInstance(string instance_name, string worldName, string publisher) {
-            SetupRoomOptions(worldName, publisher, instance_name);
+        public void JoinInstance(string instance_name, string worldName, string publisher, int instanceID = 0) {
+            SetupRoomOptions(worldName, publisher, instance_name, instanceID);
             _worldHandler.LoadWorld(publisher, worldName);
             isLoadingNextWorld = true;
         }
@@ -196,8 +196,8 @@ namespace SocialSDK.Online {
             }
         }
 
-        public void SetupRoomOptions(string worldName, string publisher, string room_name = "") {
-            int instanceID = Random.Range(0, 348939202);
+        public void SetupRoomOptions(string worldName, string publisher, string room_name = "", int instanceID = 0) {
+            if (instanceID == 0) instanceID = Random.Range(0, 348939202);
             string instanceID_str = $"{instanceID}";
             roomInfo = new Room();
 

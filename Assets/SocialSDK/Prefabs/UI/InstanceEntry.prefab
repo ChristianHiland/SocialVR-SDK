@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: {fileID: 2785027735368408557}
+  roomOwner: {fileID: 1371897707787528092}
+  roomPlayerCount: {fileID: 6379599056337900508}
   room_name: 
   multiplayerManager: {fileID: 0}
 --- !u!1 &1884738318995419310

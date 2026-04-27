@@ -469,7 +469,6 @@
 "Assets/SocialSDK/Scripts/Helpers/KeepAlive.cs"
 "Assets/SocialSDK/Scripts/Helpers/SceneRefHandler.cs"
 "Assets/SocialSDK/Scripts/Helpers/World Loading/WorldActionLoader.cs"
-"Assets/SocialSDK/Scripts/Multiplayer.cs"
 "Assets/SocialSDK/Scripts/Photon/AvatarSetup.cs"
 "Assets/SocialSDK/Scripts/Photon/NametagSync.cs"
 "Assets/SocialSDK/Scripts/Photon/NetworkAuthenticator.cs"

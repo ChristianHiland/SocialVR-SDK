@@ -106,7 +106,6 @@
     <Compile Include="Assets\SocialSDK\Imports\Mini First Person Controller\Scripts\Components\Jump.cs" />
     <Compile Include="Assets\SocialSDK\VR Body\IKTargetFollowVRRig.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Player\PlayerControl.cs" />
-    <Compile Include="Assets\SocialSDK\Scripts\Multiplayer.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\World Downloader.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Player\Avatar\SocialAvatar.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\UI\WorldInstances.cs" />

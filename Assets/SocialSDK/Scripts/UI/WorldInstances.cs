@@ -15,7 +15,7 @@ public class WorldInstances : MonoBehaviour {
         foreach (Room room in instances.Rooms) {
             GameObject obj = Instantiate(instanceEntryPrefab, container);
             InstanceEntry entry = obj.GetComponent<InstanceEntry>();
-            entry.Setup(room.InstanceName, multiplayerManager);
+            entry.Setup(room.InstanceName, room.Owner, multiplayerManager);
         }
     }
     

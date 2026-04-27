@@ -14,6 +14,10 @@ public class NametagSync : MonoBehaviourPun {
         photonView.Owner.CustomProperties.TryGetValue("Rank", out object rank);
         displayNameLabel.text = (string)name;
         rankLabel.text = (string)rank;
+
+        if ((string)rank == "Admin" || (string)rank == "Dev") {
+            rankLabel.color = new Color(153, 0, 255);
+        }
     }
 
     // Update is called once per frame

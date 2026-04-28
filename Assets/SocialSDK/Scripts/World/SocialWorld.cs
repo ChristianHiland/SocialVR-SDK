@@ -17,7 +17,6 @@ namespace SocialSDK {
         [Header("Editor ONLY")]
         public GameObject localPlayerPrefab;
         public bool SpawnLocalPlayer = false;
-
         [Header("Events")]
         public UnityEvent onPlayerSpawned;
         

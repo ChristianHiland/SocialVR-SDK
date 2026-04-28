@@ -1,9 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections.Generic;
+using SocialSDK.Interaction;
+using System.Collections;
+using UnityEngine.Audio;
+using SocialSDK.Audio;
 using UnityEngine;
 using UnityEditor;
-using SocialSDK.Interaction;
+
 
 namespace SocialSDK {
     public class SocialWorldEditor : EditorWindow {
@@ -40,6 +43,19 @@ namespace SocialSDK {
             if (Selection.activeGameObject != null) {
                 // Undo.AddComponent allows the user to Ctrl+Z the action
                 Undo.AddComponent<SocialWorld>(Selection.activeGameObject);
+                GameObject audioMixer = new GameObject("World Audio Mixer");
+
+                audioMixer.transform.SetParent(Selection.activeGameObject.transform);
+                audioMixer.transform.localPosition = Vector3.zero;
+                audioMixer.transform.localRotation = Quaternion.identity;
+
+                AudioMixer template = AssetDatabase.LoadAssetAtPath<AudioMixer>("Assets/SocialSDK/Internal/SocialMixerTemplate.mixer");
+                
+                if (template != null) {
+                    var manager = Undo.AddComponent<SocialWorldVolume>(audioMixer);
+                    manager.mainMixer = template;
+                }
+            
             } else {
                 Debug.LogWarning("Please select an object in the Hierarchy first!");
             }

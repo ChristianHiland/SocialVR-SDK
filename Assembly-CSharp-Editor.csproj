@@ -74,11 +74,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SocialSDK\Scripts\Editor\BundleScene.cs" />
+    <Compile Include="Assets\SocialSDK\Scripts\Editor\SocialSDK.cs" />
     <Compile Include="Assets\SocialSDK\Scripts\Editor\SocialWorld\SocialWorldEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NuGet\Editor\NuGetForUnity.PluginAPI.xml" />
+    <None Include="Assets\SocialSDK\Scripts\Editor\SocialSDK Window.uxml" />
     <None Include="Assets\NuGet\Editor\NuGetForUnity.PluginAPI.dll" />
     <None Include="Assets\NuGet\Editor\NugetForUnity.dll" />
   </ItemGroup>
@@ -423,6 +424,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\UnityEditor.Android.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
@@ -517,6 +522,18 @@
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Android.GradleProject">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.GradleProject.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="mscorlib">
@@ -1289,9 +1306,17 @@
       <Project>{950C3CB5-EF0F-F14C-CDF5-0E4879E9AE3B}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.Editor.csproj">
+      <Project>{A682F1A9-F7B7-FE03-9416-C05E8524CEA7}</Project>
+      <Name>Tayx.Graphy.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="_AVProVideo.Extensions.VideoPlayer.Editor.csproj">
       <Project>{C9FE12BA-77C7-2415-EF81-4CA24998E7E7}</Project>
       <Name>_AVProVideo.Extensions.VideoPlayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Tayx.Graphy.csproj">
+      <Project>{21BC1D70-2366-1E71-BA38-D9366321CC20}</Project>
+      <Name>Tayx.Graphy</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{79050B3F-9F2B-8BCE-7DB1-16E0B7C1B9CE}</Project>

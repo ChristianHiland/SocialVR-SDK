@@ -44,10 +44,13 @@ namespace SocialSDK.Video {
             }
         }
 
-        public void StartVideo() {
+        public void StartVideo()
+        {
             if (statusText != null) statusText.gameObject.SetActive(true);
             if (youtubeUrl == "") { youtubeUrl = urlInputField.text; }
-            if (PhotonNetwork.IsMasterClient) RequestNewVideo(youtubeUrl);
+            if (PhotonNetwork.IsMasterClient) {
+                RequestNewVideo(youtubeUrl);
+            }
         }
     
         public async void ResolveAndPlay(string youtubeURL) {

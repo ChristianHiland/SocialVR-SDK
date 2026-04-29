@@ -48,6 +48,7 @@ namespace SocialSDK {
     public class WorldInfoGet {
         public string name;
         public string publisher;
+        public string platform;
     }
 
     [System.Serializable]
@@ -73,6 +74,12 @@ namespace SocialSDK {
     public enum PlatformType {
         VR,
         Desktop
+    }
+
+    [System.Serializable]
+    public enum TargetPlatform {
+        Android,
+        Windows
     }
 
     [System.Serializable]

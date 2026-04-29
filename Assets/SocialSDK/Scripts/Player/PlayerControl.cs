@@ -14,6 +14,7 @@ namespace SocialSDK {
         public GameObject mainMenu;
         public GameObject menu;
         public GameObject debugMenu;
+        public GameObject fpsMenu;
 
         [Header("Generic")]
         public Transform playerRoot;
@@ -54,6 +55,10 @@ namespace SocialSDK {
 
                 if (Input.GetKeyDown(KeyCode.G)) {
                     debugMenu.SetActive(!debugMenu.activeSelf);
+                }
+
+                if (Input.GetKeyDown(KeyCode.F3)) {
+                    fpsMenu.SetActive(!fpsMenu.activeSelf);
                 }
             }
         }

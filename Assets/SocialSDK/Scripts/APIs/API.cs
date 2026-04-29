@@ -100,8 +100,7 @@ namespace SocialSDK {
             // Making Request URL.
             string encodedWorldName = UnityWebRequest.EscapeURL(worldName);
             string encodedPublisher = UnityWebRequest.EscapeURL(publisher);
-            string encodedPlatform = UnityWebRequest.EscapeURL(GetPlatform().ToString());
-            string fullUrl = $"{settings.serverURL}game/assets/getWorld?publisher={encodedPublisher}&worldName={encodedWorldName}&platform={encodedPlatform}";
+            string fullUrl = $"{settings.serverURL}game/assets/getWorld?publisher={encodedPublisher}&worldName={encodedWorldName}";
             if (Directory.Exists(Path.Combine(Application.persistentDataPath, $"{settings.worldPath}{worldName}_{publisher}"))) {
                 Directory.Delete(Path.Combine(Application.persistentDataPath, $"{settings.worldPath}{worldName}_{publisher}"), true);    
             }
@@ -325,16 +324,6 @@ namespace SocialSDK {
                 Debug.Log($"[LOADING ERROR]: File Not Found: {filePath}");
                 return "";
             }
-        }
-
-        TargetPlatform GetPlatform() {
-#if UNITY_ANDROID
-            return TargetPlatform.Android;
-#elif UNITY_STANDALONE_WIN
-            return TargetPlatform.Windows;
-#else
-            return TargetPlatform.Windows;
-#endif
         }
     }
 }

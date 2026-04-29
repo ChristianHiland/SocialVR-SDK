@@ -48,7 +48,6 @@ namespace SocialSDK {
     public class WorldInfoGet {
         public string name;
         public string publisher;
-        public string platform;
     }
 
     [System.Serializable]
@@ -76,11 +75,6 @@ namespace SocialSDK {
         Desktop
     }
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     [System.Serializable]
     public class YouTubeResolverResponse {
         public string url;
@@ -99,17 +93,6 @@ namespace SocialSDK {
         }
     }
 
-<<<<<<< Updated upstream
-=======
-    [System.Serializable]
-    public enum TargetPlatform {
-        Windows,
-        Linux,
-        Android
-    }
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     public class Structs {
         
     }

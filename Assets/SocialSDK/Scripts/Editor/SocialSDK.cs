@@ -14,7 +14,7 @@ namespace SocialSDK {
         private Camera worldThumbnailCamera;
         private SceneAsset sceneToBundle;
         private TargetPlatform targetPlatform;
-        private string serverURL = "http://170-187-201-130.ip.linodeusercontent.com:8001/";
+        private string serverURL = "https://170.187.201.130/";
 
         private string worldName = "";
         private string publisherName = "";

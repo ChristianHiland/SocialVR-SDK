@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/SocialSDK/Scenes/VR/Main Menu VR.unity
+    guid: c069bdc24141058469cb0491d4e12125
+  - enabled: 1
     path: Assets/SocialSDK/Scenes/Main Menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

@@ -43,7 +43,7 @@ public class IKFootSolver : MonoBehaviour
         transform.position = currentPosition + Vector3.up * footYPosOffset;
         transform.localRotation = Quaternion.Euler(footRotOffset);
 
-        Ray ray = new Ray(body.position + (body.right * footSpacing) + Vector3.up * rayStartYOffset, Vector3.down);
+        Ray ray = new Ray(body.position + (body.right * footSpacing) + (Vector3.up * rayStartYOffset), Vector3.down);
 
         Debug.DrawRay(body.position + (body.right * footSpacing) + Vector3.up * rayStartYOffset, Vector3.down);
             
@@ -57,6 +57,7 @@ public class IKFootSolver : MonoBehaviour
                 float angle = Vector3.Angle(body.forward, body.InverseTransformDirection(direction));
 
                 isMovingForward = angle < 50 || angle > 130;
+                oldPosition = currentPosition;
 
                 if(isMovingForward)
                 {
@@ -80,11 +81,6 @@ public class IKFootSolver : MonoBehaviour
             currentPosition = tempPosition;
             currentNormal = Vector3.Lerp(oldNormal, newNormal, lerp);
             lerp += Time.deltaTime * speed;
-        }
-        else
-        {
-            oldPosition = newPosition;
-            oldNormal = newNormal;
         }
     }
 
